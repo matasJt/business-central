@@ -49,9 +49,9 @@ page 50132 "Personal ID Check"
                 HistoryRec.Modify(true);
             end;
             if IsValid then
-                Message('Added to history, inputed personal ID is correct')
+                Message('Added to history, personal ID is correct')
             else
-                Message('Added to history, inputed personal ID is invalid');
+                Message('Added to history, personal ID is invalid');
         end;
     end;
 
