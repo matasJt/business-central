@@ -2,8 +2,6 @@ table 50131 "Personal ID Check History"
 {
     DataClassification = CustomerContent;
     Caption='Personal ID check history.';
-    DrillDownPageId="Personal ID Checks";
-    LookupPageId="Personal ID Checks";
 
     fields
     {
@@ -29,9 +27,9 @@ table 50131 "Personal ID Check History"
             DataClassification = ToBeClassified;
         
         }
-        field(5; "Checked at"; Time)
+        field(5; "Checked at"; DateTime)
         {
-            Caption='Time';
+            Caption='Date';
             DataClassification = CustomerContent;
         }
     }
