@@ -67,6 +67,7 @@ table 50116 BonusHeader
     var
         ErrorMessage: Label 'Status cannot be %1', Comment = '% Status field value';
         BonusLine: record BonusLine;
+        sss: Page "Sales Invoice";
 
     local procedure TestStatus()
     begin

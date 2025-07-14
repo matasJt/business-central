@@ -1,6 +1,13 @@
 codeunit 50134 PersonalIDValidation
 {
 
+    /// <summary>
+    /// ValidatePersonalID.
+    /// </summary>
+    /// <param name="Input">Text.</param>
+    /// <param name="IsValid">VAR Boolean.</param>
+    /// <param name="Error">VAR Text.</param>
+    /// <returns>Return value of type Boolean.</returns>
     procedure ValidatePersonalID(Input: Text; var IsValid: Boolean; var Error: Text): Boolean
     var
         UniqueNumber: Integer;                        //Last digit of personal id, calculated from first 10 digits
