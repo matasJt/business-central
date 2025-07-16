@@ -71,8 +71,6 @@ table 50135 ClientContract
         }
 
     }
-
-
     trigger OnInsert()
     var
         ContractSetup: Record ContractSetup;
@@ -80,7 +78,6 @@ table 50135 ClientContract
         ErrInfo: ErrorInfo;
     begin
         if ContractSetup.Get() then begin
-
             ContractSetup.TestField("Contract Nos");
             "Contract No." := NoSeries.GetNextNo(ContractSetup."Contract Nos", Today, true);
             "Contract Status" := ContractStatus::Open;
@@ -88,22 +85,35 @@ table 50135 ClientContract
     end;
 
     trigger OnModify()
-    var
-        MustOpenErr: Label 'Cannot modify a released contract.', Comment = 'Negalima keisti išleistos sutarties.';
     begin
-        if "Contract Status" = ContractStatus::Released then
-            Error(MustOpenErr);
+        TestStatus();
     end;
 
     local procedure ValidateDates()
     begin
-        if "Contract Start Date" = 0D then
-            exit;
-        if "Contract End Date" = 0D then
-            exit;
         if "Contract Start Date" > "Contract End Date" then
             Error('Contract Start Date cannot be later than Contract End Date.');
         if "Contract End Date" < "Contract Start Date" then
             Error('Contract End Date cannot be earlier than Contract Start Date.');
+    end;
+
+    local procedure TestStatus()
+     var
+        MustOpenErr: Label 'Cannot modify a released contract it need to be in Open status', Comment = 'Negalima keisti išleistos sutarties, ji turi būti atidaryta';
+    begin
+          if "Contract Status" = ContractStatus::Released then
+            Error(MustOpenErr);
+    end;
+
+    /// <summary>
+    /// Change status from released to open or vice versa.
+    /// </summary>
+    procedure ChangeStatus()
+    var
+        IsReleased: Boolean;
+    begin
+        IsReleased := "Contract Status" = ContractStatus::Released;
+        "Contract Status" :=IsReleased ? ContractStatus::Open : ContractStatus::Released;
+        Modify(false);
     end;
 }

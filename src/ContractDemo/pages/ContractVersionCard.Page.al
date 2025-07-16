@@ -1,19 +1,24 @@
-page 50136 ClientContractList
+page 50145 ContractVersionCard
 {
-    PageType = List;
+    PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = ClientContract;
-    CardPageId = ClientCOntractCard;
+    UsageCategory = None;
+    SourceTable = ContractVersion;
     Editable = false;
-    Caption = 'Client Contracts';
-
+    Caption = 'Contract Version Card';
+    
+    
     layout
     {
         area(Content)
         {
-            repeater(General)
+            group(GroupName)
             {
+               field("Contract Version No."; Rec."Contract Version No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the contract version number.';
+                }
                 field("Contract No."; Rec."Contract No.")
                 {
                     ApplicationArea = All;
@@ -49,49 +54,7 @@ page 50136 ClientContractList
                     ApplicationArea = All;
                     ToolTip = 'Specifies the contract status.';
                 }
-            }
-        }
-
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(Release)
-            {
-                ApplicationArea = All;
-                Caption = 'Release';
-                Image = ReleaseDoc;
-                ToolTip = 'Set the contract to released status.';
-                trigger OnAction()
-                begin
-                    Rec.ChangeStatus();
-                end;
-
-            }
-            action(Open)
-            {
-                ApplicationArea = All;
-                Caption = 'Open';
-                Image = ReOpen;
-                ToolTip = 'Set the contract to open status.';
-                trigger OnAction()
-                begin
-                   Rec.ChangeStatus();
-                end;
-
-            }
-        }
-        area(Promoted)
-        {
-            actionref(Release_Promoted; Release)
-            {
-
-            }
-            actionref(Open_Promoted; Open)
-            {
-
+                  
             }
         }
     }

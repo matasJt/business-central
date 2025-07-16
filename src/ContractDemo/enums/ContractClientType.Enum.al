@@ -1,13 +1,13 @@
-enum 50140 ContractClientType
+enum 50135 ContractClientType
 {
     Extensible = true;
     
     value(0; Customer)
     {
-        Caption = 'Customer';
+        Caption= 'Customer';
     }
     value(1; Vendor)
     {
-        Caption = 'Vendor';
+        Caption= 'Vendor';
     }
 }

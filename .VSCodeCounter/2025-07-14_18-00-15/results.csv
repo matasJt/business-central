@@ -1,0 +1,34 @@
+"filename", "language", "alapp", "JSON", "AL", "Markdown", "comment", "blank", "total"
+"c:\Users\em\Documents\GitHub\Practise\.alpackages\Microsoft_Application_26.2.34746.34832.app", "alapp", 230, 0, 0, 0, 0, 2, 232
+"c:\Users\em\Documents\GitHub\Practise\.alpackages\Microsoft_Base Application_26.2.34746.34832.app", "alapp", 267847, 0, 0, 0, 0, 1545, 269392
+"c:\Users\em\Documents\GitHub\Practise\.alpackages\Microsoft_Business Foundation_26.2.34746.34832.app", "alapp", 4447, 0, 0, 0, 0, 43, 4490
+"c:\Users\em\Documents\GitHub\Practise\.alpackages\Microsoft_System Application_26.2.34746.34832.app", "alapp", 64725, 0, 0, 0, 0, 374, 65099
+"c:\Users\em\Documents\GitHub\Practise\.alpackages\Microsoft_System_26.0.34736.0.app", "alapp", 24234, 0, 0, 0, 0, 137, 24371
+"c:\Users\em\Documents\GitHub\Practise\MATA_Contract_1.0.0.0.app", "alapp", 178, 0, 0, 0, 0, 0, 178
+"c:\Users\em\Documents\GitHub\Practise\README.md", "Markdown", 0, 0, 0, 1, 0, 0, 1
+"c:\Users\em\Documents\GitHub\Practise\app.json", "JSON", 0, 32, 0, 0, 0, 0, 32
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\Customer\Customer.TableExt.al", "AL", 0, 0, 26, 0, 0, 4, 30
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\Customer\CustomerList.Page.Ext.al", "AL", 0, 0, 31, 0, 0, 2, 33
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\codeunit\BonusCalculation.Codeunit.al", "AL", 0, 0, 65, 0, 2, 16, 83
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\page\BonusCard.Page.al", "AL", 0, 0, 75, 0, 0, 3, 78
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\page\BonusEntries.Page.al", "AL", 0, 0, 66, 0, 0, 8, 74
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\page\BonusList.Page.al", "AL", 0, 0, 59, 0, 0, 2, 61
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\page\BonusSubForm.Page.al", "AL", 0, 0, 45, 0, 0, 6, 51
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\table\BonusEntry.Table.al", "AL", 0, 0, 74, 0, 1, 14, 89
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\table\BonusHeader.Table.al", "AL", 0, 0, 76, 0, 0, 7, 83
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\table\BonusHeaderStatus.Enum.al", "AL", 0, 0, 12, 0, 0, 1, 13
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\table\BonusLine.Table.al", "AL", 0, 0, 64, 0, 0, 9, 73
+"c:\Users\em\Documents\GitHub\Practise\src\Bonus Registration\table\BonusLineType.Enum.al", "AL", 0, 0, 12, 0, 0, 1, 13
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\enums\ContractClientType.Enum.al", "AL", 0, 0, 12, 0, 0, 1, 13
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\enums\ContractStatus.Enum.al", "AL", 0, 0, 12, 0, 0, 1, 13
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\pages\ClientContractCard.Page.al", "AL", 0, 0, 98, 0, 7, 11, 116
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\pages\ClientContractList.Page.al", "AL", 0, 0, 93, 0, 0, 7, 100
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\pages\ContractSetupCard.Page.al", "AL", 0, 0, 25, 0, 0, 7, 32
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\tables\ClientContract.Table.al", "AL", 0, 0, 97, 0, 0, 8, 105
+"c:\Users\em\Documents\GitHub\Practise\src\ContractDemo\tables\ContractSetup.Table.al", "AL", 0, 0, 41, 0, 0, 5, 46
+"c:\Users\em\Documents\GitHub\Practise\src\Permissions\GeneratedPermission.permissionset.al", "AL", 0, 0, 9, 0, 0, 0, 9
+"c:\Users\em\Documents\GitHub\Practise\src\PersonalCodes\codeunits\PersonalIDValidation.Codeunit.al", "AL", 0, 0, 57, 0, 9, 8, 74
+"c:\Users\em\Documents\GitHub\Practise\src\PersonalCodes\pages\PersonalIDCheck.Page.al", "AL", 0, 0, 52, 0, 0, 6, 58
+"c:\Users\em\Documents\GitHub\Practise\src\PersonalCodes\pages\PersonalIDChecks.Page.al", "AL", 0, 0, 75, 0, 0, 5, 80
+"c:\Users\em\Documents\GitHub\Practise\src\PersonalCodes\tables\PersonalIDCheckHistory.Table.al", "AL", 0, 0, 41, 0, 0, 4, 45
+"Total", "-", 361661, 32, 1217, 1, 19, 2237, 365167

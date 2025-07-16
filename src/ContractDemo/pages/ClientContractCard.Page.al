@@ -74,8 +74,7 @@ page 50137 ClientContractCard
                 ToolTip = 'Set the contract to released status.';
                 trigger OnAction()
                 begin
-                    Rec."Contract Status" := ContractStatus::Released;
-                    Rec.Modify(false);
+                    Rec.ChangeStatus();
                 end;
 
             }
@@ -87,10 +86,35 @@ page 50137 ClientContractCard
                 ToolTip = 'Set the contract to open status.';
                 trigger OnAction()
                 begin
-                    Rec."Contract Status" := ContractStatus::Open;
-                    Rec.Modify(false);
+                    Rec.ChangeStatus();
                 end;
 
+            }
+            action(CreateContractVersion)
+            {
+                ApplicationArea = All;
+                Caption = 'Create Contract Version';
+                Image = Create;
+                ToolTip = 'Create a new version of the contract.';
+                trigger OnAction()
+                var
+                    CreateContractVersion: Codeunit CreateContractVersion;
+                begin
+                    CreateContractVersion.CreateNewVersion(Rec);
+                end;
+            }
+            action(OpenContractVersions)
+            {
+                ApplicationArea = All;
+                Caption = 'Open Contract Versions';
+                Image = Open;
+                ToolTip = 'Open the contract versions for this contract.';
+                trigger OnAction()
+                var
+                    CreateContractVersion: Codeunit CreateContractVersion;
+                begin
+                    CreateContractVersion.OpenContractVersions(Rec);
+                end;
             }
         }
         area(Promoted)
@@ -102,6 +126,18 @@ page 50137 ClientContractCard
             actionref(Open_Promoted; Open)
             {
 
+            }
+            group(CreateContractVersion_Promote)
+            {
+                Caption = 'Contract versions';
+                actionref(OpenContractVersions_Promoted; OpenContractVersions)
+                {
+
+                }
+                actionref(CreateContractVersion_Promoted; CreateContractVersion)
+                {
+
+                }
             }
         }
     }
