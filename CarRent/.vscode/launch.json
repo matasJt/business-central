@@ -9,14 +9,15 @@
             "server": "http://localhost",
             "serverInstance": "BC260",
             "authentication": "Windows",
-            "startupObjectId": 50136,
+            "startupObjectId": 50213,
             "startupObjectType": "Page",
             "breakOnError": "All",
-            "launchBrowser": false,
+            "launchBrowser": true,
             "enableLongRunningSqlStatements": true,
             "enableSqlInformationDebugger": true,
             "tenant": "default",
-            "usePublicURLFromServer": true
+            "usePublicURLFromServer": true,
+            "schemaUpdateMode": "ForceSync"
         }
     ]
 }

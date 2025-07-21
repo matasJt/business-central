@@ -16,7 +16,7 @@
   "application": "26.0.0.0",
     "idRanges": [
     {
-      "from": 50100,
+      "from": 50200,
       "to": 50300
     }
   ],
@@ -27,6 +27,7 @@
   },
   "runtime": "15.0",
   "features": [
-    "NoImplicitWith"
+    "NoImplicitWith",
+    "TranslationFile"
   ]
 }

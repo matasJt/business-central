@@ -59,6 +59,7 @@ page 50137 ClientContractCard
                     ApplicationArea = All;
                     ToolTip = 'Specifies the contract status.';
                 }
+                
             }
         }
     }
