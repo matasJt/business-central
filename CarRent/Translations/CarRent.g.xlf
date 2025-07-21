@@ -158,6 +158,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method CheckClient - NamedType DebtMsg</note>
         </trans-unit>
+        <trans-unit id="Table 2008378583 - Method 2451657066 - NamedType 2891562574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Must upload driving license</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method OnInsert - NamedType LicenseMsg</note>
+        </trans-unit>
+        <trans-unit id="Table 2008378583 - Method 4152941904 - NamedType 2891562574" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Must upload driving license</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method ValidateDrivingLicense - NamedType LicenseMsg</note>
+        </trans-unit>
         <trans-unit id="Table 2008378583 - Field 4097338916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto No.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -357,6 +367,31 @@
           <source>Driving License</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2477294019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete the current picture.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action Delete - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2477294019 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action Delete - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2864777531 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import a picture file.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2864777531 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2864777531 - Method 1377591017 - NamedType 464428880" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select a picture to import</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Method OnAction - NamedType SelectPictureTxt</note>
         </trans-unit>
       </group>
     </body>

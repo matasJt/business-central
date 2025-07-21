@@ -21,10 +21,6 @@ page 50213 AutoRentHeaderList
                 {
 
                 }
-                field("Driving License"; Rec."Driving License")
-                {
-
-                }
                 field("Creation Date"; Rec."Creation Date")
                 {
 

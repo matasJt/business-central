@@ -57,8 +57,7 @@ page 50214 AutoRentHeaderCard
         {
             part(Picture; DrivingLicense)
             {
-                ApplicationArea = All;
-               
+                SubPageLink = "No." = FIELD("No.");
             }
         }
     }
@@ -82,6 +81,9 @@ page 50214 AutoRentHeaderCard
         }
     }
 
+
+
+
     local procedure SetDateTime(ReserveationTime: DateTime): DateTime
     var
         DateTimeDialog: Page "Date-Time Dialog";
@@ -90,4 +92,5 @@ page 50214 AutoRentHeaderCard
         if DateTimeDialog.RunModal() = Action::OK then
             exit(DateTimeDialog.GetDateTime());
     end;
+
 }

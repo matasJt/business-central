@@ -26,7 +26,7 @@ table 50211 AutoRentHeader
         {
             Caption = 'Driving License';
             DataClassification = CustomerContent;
-            
+
         }
         field(4; "Creation Date"; Date)
         {
@@ -87,36 +87,27 @@ table 50211 AutoRentHeader
 
     trigger OnInsert()
     var
+        LicenseMsg: Label 'Must upload driving license';
         NoSeries: Codeunit "No. Series";
         TableNoSeries: Record "No. Series";
-        AutoSetup: Record AutoSetup;
-        ss: Record "Sales Invoice Header";
-        sss: Page "Customer Card";
-        aa: Page "Customer Picture";
     begin
         TableNoSeries.Get('A-ORD');
         "No." := NoSeries.GetNextNo(TableNoSeries.Code);
         ReadIsolation(IsolationLevel::ReadUncommitted);
         SetLoadFields("No.");
+
         while Get("No.") do
             "No." := NoSeries.GetNextNo(TableNoSeries.Code);
         "Creation Date" := System.Today;
+
     end;
 
     trigger OnModify()
     begin
-
+        ValidateDrivingLicense();
     end;
 
-    trigger OnDelete()
-    begin
 
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
 
     /// <summary>
     /// Check if client is not banned and doesn't have debt
@@ -143,6 +134,14 @@ table 50211 AutoRentHeader
 
         if AmountRemained <> 0 then
             Error(DebtMsg);
+    end;
+
+    local procedure ValidateDrivingLicense()
+    var
+        LicenseMsg: Label 'Must upload driving license';
+    begin
+        if not "Driving License".HasValue then
+            Error(LicenseMsg);
     end;
 
 }
