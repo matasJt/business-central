@@ -158,10 +158,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method CheckClient - NamedType DebtMsg</note>
         </trans-unit>
-        <trans-unit id="Table 2008378583 - Method 2451657066 - NamedType 2891562574" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Must upload driving license</source>
+        <trans-unit id="Table 2008378583 - Method 2470176273 - NamedType 152847394" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto must be selected</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method OnInsert - NamedType LicenseMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method CheckClient - NamedType AutoMsg</note>
         </trans-unit>
         <trans-unit id="Table 2008378583 - Method 4152941904 - NamedType 2891562574" size-unit="char" translate="yes" xml:space="preserve">
           <source>Must upload driving license</source>
@@ -222,6 +222,61 @@
           <source>Status</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Method 3152277940 - NamedType 407090172" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generated record cannot be deleted</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Method OnDelete - NamedType DeleteMsg</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Method 1262666395 - NamedType 1418165947" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Generated record cannot be modified</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Method OnModify - NamedType ModifyMsg</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 131304661 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Deleteable</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Deleteable - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 486908828 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Document No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Document No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 3635338911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Price</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Price - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 2704404533 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Quantity</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Quantity - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 2782707039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Row No.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Row No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 3502818357 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Sum</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Sum - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4270674832 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Type</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentLine - Field Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1897045417 - Field 4097338916 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto No.</source>
@@ -343,6 +398,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2425311731 - Control 3959405189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Main details</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Control Main - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2425311731 - Action 2620050775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change status to issued, means rent is active.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -353,10 +413,70 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Issued - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2425311731 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Category_Process - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1942823937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto Rent List</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1942823937 - Action 2620050775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Change status to issued, rent will be activated</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderList - Action Issued - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1942823937 - Action 2620050775 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderList - Action Issued - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1942823937 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Issue</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderList - Action Category_Process - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Addition services</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 1300919661 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Count field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Count - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Description field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 486908828 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Docutment. No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Document No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 3635338911 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Price field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Price - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 2782707039 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Row No. field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Row No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 3502818357 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Sum field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Sum - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 278809459 - Control 1878130204 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Type field.</source>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentLineListPart - Control Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2609159272 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto setup Card</source>
@@ -369,7 +489,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1036835862 - Action 2477294019 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete the current picture.</source>
+          <source>Delete the current driving license</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action Delete - Property ToolTip</note>
         </trans-unit>
@@ -392,6 +512,16 @@
           <source>Select a picture to import</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Method OnAction - NamedType SelectPictureTxt</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2864777531 - Method 1377591017 - NamedType 181609592" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Only image files (JPG, PNG, BMP) are allowed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Method OnAction - NamedType FilesMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1036835862 - Action 2864777531 - Method 1377591017 - NamedType 2739634287" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot edit driving license while rent is issued</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Method OnAction - NamedType CreateMsg</note>
         </trans-unit>
       </group>
     </body>

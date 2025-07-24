@@ -9,8 +9,9 @@ page 50214 AutoRentHeaderCard
     {
         area(Content)
         {
-            group(GroupName)
+            group(Main)
             {
+                Caption = 'Main details';
                 field("No."; Rec."No.")
                 {
 
@@ -25,7 +26,11 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Auto No."; Rec."Auto No.")
                 {
-                    Editable = Rec.Status <> Rec.Status::Issued;
+                    Editable =(Rec."Client No." <> '') and (Rec.Status <> Rec.Status::Issued);
+                    trigger OnValidate()
+                    begin
+                        OnSelectCar();
+                    end;
                 }
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
@@ -38,6 +43,7 @@ page 50214 AutoRentHeaderCard
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
                     Editable = Rec.Status <> Rec.Status::Issued;
+
                     trigger OnLookup(var Text: Text): Boolean
                     begin
                         Rec."Reservation End Time" := SetDateTime(Rec."Reservation End Time");
@@ -50,6 +56,15 @@ page 50214 AutoRentHeaderCard
                 field(Status; Rec.Status)
                 {
 
+                }
+            }
+            group(Addition)
+            {
+                part(Services; AutoRentLineListPart)
+                {
+                    SubPageLink = "Document No." = FIELD("No.");
+                    ApplicationArea = All;
+                    Visible = Rec."No." <> '';
                 }
             }
         }
@@ -79,10 +94,18 @@ page 50214 AutoRentHeaderCard
                 end;
             }
         }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Issue';
+
+                actionref(Issued_Promoted; Issued)
+                {
+                }
+            }
+        }
     }
-
-
-
 
     local procedure SetDateTime(ReserveationTime: DateTime): DateTime
     var
@@ -92,5 +115,28 @@ page 50214 AutoRentHeaderCard
         if DateTimeDialog.RunModal() = Action::OK then
             exit(DateTimeDialog.GetDateTime());
     end;
+
+    local procedure OnSelectCar()
+    var
+        Auto: Record Auto;
+        AutoRentLine: Record AutoRentLine;
+        Resource: Record Resource;
+    begin
+        Auto.Get(Rec."Auto No.");
+        Resource.Get(Auto.RentService);
+        AutoRentLine.Init();
+        AutoRentLine.NewRowNo();
+        AutoRentLine."Document No." := Rec."No.";
+        AutoRentLine.Description := Resource.Name;
+        AutoRentLine."No." := Resource."No.";
+        AutoRentLine.Price := Resource."Unit Price";
+        AutoRentLine.Quantity := 1;
+        AutoRentLine.Sum := AutoRentLine.Quantity * AutoRentLine.Price;
+        AutoRentLine.Deleteable := false;
+        AutoRentLine.Insert(false);
+    end;
+
+    var
+        Selected: Boolean;
 
 }

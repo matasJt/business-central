@@ -52,6 +52,34 @@ page 50213 AutoRentHeaderList
 
         }
     }
+     actions
+    {
+        area(Processing)
+        {
+            action(Issued)
+            {
+                Caption = 'Issue';
+                Image = ReleaseDoc;
+                ToolTip = 'Change status to issued, rent will be activated';
+                trigger OnAction()
+                begin
+                    Rec.Status := Rec.Status::Issued;
+                    Rec.Modify(false);
+                end;
+            }
+        }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Issue';
+                
+                actionref(Issued_Promoted; Issued)
+                {
+                }
+            }
+        }
+    }
 
 
 }

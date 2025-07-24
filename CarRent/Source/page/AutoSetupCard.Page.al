@@ -4,6 +4,7 @@ page 50201 AutoSetupCard
     SourceTable = AutoSetup;
     Caption = 'Auto setup Card';
     UsageCategory = Administration;
+    ApplicationArea = All;
   
     layout
     {
