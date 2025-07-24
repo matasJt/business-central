@@ -4,11 +4,10 @@ table 50209 AutoReservation
 
     fields
     {
-        field(1; "No."; Integer)
+        field(1; "No."; Code[30])
         {
             Caption = 'No.';
             DataClassification = ToBeClassified;
-            AutoIncrement = true;
         }
         field(2; "Auto No."; Code[30])
         {

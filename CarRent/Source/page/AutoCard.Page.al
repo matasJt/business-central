@@ -65,14 +65,28 @@ page 50208 AutoCard
     {
         area(Processing)
         {
-            action(ActionName)
+            action(CheckReservations)
             {
-
+                Caption = 'Open reservation';
+                ToolTip = 'Opens reservation history page for this car';
+                Image = OpenJournal;
                 trigger OnAction()
+                var
+                    AutoReservation: Record AutoReservation;
                 begin
-
+                    AutoReservation.Reset();
+                    AutoReservation.SetRange("Auto No.", Rec."No.");
+                    Page.Run(PAge::AutoReservationList,AutoReservation);
                 end;
             }
+        }
+        area(Promoted)
+        {
+
+            actionref(CheckReservations_Promoted; CheckReservations)
+            {
+            }
+
         }
     }
 

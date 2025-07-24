@@ -26,7 +26,7 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Auto No."; Rec."Auto No.")
                 {
-                    Editable =(Rec."Client No." <> '') and (Rec.Status <> Rec.Status::Issued);
+                    Editable = (Rec."Client No." <> '') and (Rec.Status <> Rec.Status::Issued);
                     trigger OnValidate()
                     begin
                         OnSelectCar();
@@ -35,23 +35,22 @@ page 50214 AutoRentHeaderCard
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
                     Editable = Rec.Status <> Rec.Status::Issued;
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnValidate()
                     begin
-                        Rec."Reservation Start Time" := SetDateTime(Rec."Reservation Start Time");
+                        CheckReservationDate();
                     end;
                 }
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
                     Editable = Rec.Status <> Rec.Status::Issued;
-
-                    trigger OnLookup(var Text: Text): Boolean
+                    trigger OnValidate()
                     begin
-                        Rec."Reservation End Time" := SetDateTime(Rec."Reservation End Time");
+                        CheckReservationDate();
                     end;
                 }
                 field("Rent Price"; Rec."Rent Price")
                 {
-                    Editable = Rec.Status <> Rec.Status::Issued;
+
                 }
                 field(Status; Rec.Status)
                 {
@@ -89,8 +88,22 @@ page 50214 AutoRentHeaderCard
                 ToolTip = 'Change status to issued, means rent is active.';
                 trigger OnAction()
                 begin
+                    if Rec.Status = Rec.Status::Issued then
+                        exit;
                     Rec.Status := Rec.Status::Issued;
                     Rec.Modify(false);
+                    //check if whole fields are not empty
+                    InsertReservation();
+                end;
+            }
+            action(Return)
+            {
+                Caption = 'Return automibile';
+                Image = Return;
+                ToolTip = 'Return automobile to rent place';
+                trigger OnAction()
+                begin
+
                 end;
             }
         }
@@ -107,15 +120,6 @@ page 50214 AutoRentHeaderCard
         }
     }
 
-    local procedure SetDateTime(ReserveationTime: DateTime): DateTime
-    var
-        DateTimeDialog: Page "Date-Time Dialog";
-    begin
-        DateTimeDialog.SetDateTime(ReserveationTime);
-        if DateTimeDialog.RunModal() = Action::OK then
-            exit(DateTimeDialog.GetDateTime());
-    end;
-
     local procedure OnSelectCar()
     var
         Auto: Record Auto;
@@ -124,8 +128,11 @@ page 50214 AutoRentHeaderCard
     begin
         Auto.Get(Rec."Auto No.");
         Resource.Get(Auto.RentService);
+        Rec."Rent Price" := Resource."Unit Price";
+        Rec.Modify(false);
         AutoRentLine.Init();
         AutoRentLine.NewRowNo();
+        AutoRentLine.Type := RentLineType::Resource;
         AutoRentLine."Document No." := Rec."No.";
         AutoRentLine.Description := Resource.Name;
         AutoRentLine."No." := Resource."No.";
@@ -135,6 +142,44 @@ page 50214 AutoRentHeaderCard
         AutoRentLine.Deleteable := false;
         AutoRentLine.Insert(false);
     end;
+
+    /// <summary>
+    /// Checks if reservation could be done on selected date if it's free
+    /// </summary>
+    local procedure CheckReservationDate()
+    var
+        AutoReservation: Record AutoReservation;
+        RentError: Label 'Cannot rent this car, reservation for this car at selected time';
+        DateError2: Label 'Start date must be earlier than end date and end date not before start date';
+    begin
+        // if (Rec."Reservation Start Time" < Today() ) or (Rec."Reservation End Time" < Today() ) then
+        //     Error(DateError);
+        if (Rec."Reservation Start Time" > Rec."Reservation End Time") or (Rec."Reservation End Time" < Rec."Reservation Start Time") then
+            Error(DateError2);
+
+        AutoReservation.Reset();
+        // AutoReservation.FindSet();
+        AutoReservation.SetRange("Auto No.", Rec."Auto No.");
+        AutoReservation.SetFilter("Reservation Start Time", '<=%1', Rec."Reservation End Time");
+        AutoReservation.SetFilter("Reservation End Time", '>=%1', Rec."Reservation Start Time");
+        if AutoReservation.IsEmpty() then
+            exit;
+        Error(RentError);
+    end;
+
+    local procedure InsertReservation()
+    var
+        AutoReservation: Record AutoReservation;
+    begin
+        AutoReservation.Init();
+        AutoReservation."Auto No." := Rec."Auto No.";
+        AutoReservation."No." := Rec."No.";
+        AutoReservation."Client No." := Rec."Client No.";
+        AutoReservation."Reservation Start Time" := Rec."Reservation Start Time";
+        AutoReservation."Reservation End Time" := Rec."Reservation End Time";
+        AutoReservation.Insert(false);
+    end;
+
 
     var
         Selected: Boolean;

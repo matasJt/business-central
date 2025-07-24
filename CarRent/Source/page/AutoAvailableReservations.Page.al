@@ -1,12 +1,11 @@
-page 50210 AutoReservationList
+page 50225 AutoAvailableReservationsPage
 {
+   
     PageType = List;
     UsageCategory = None;
     SourceTable = AutoReservation;
-    Editable = true;
-    InsertAllowed=false;
-    ModifyAllowed=false;
-    Caption= 'Auto Reservation List';
+    Editable = false;
+    Caption = 'Active Reservations From Today';
 
     layout
     {
@@ -16,7 +15,7 @@ page 50210 AutoReservationList
             {
                 field("No."; Rec."No.")
                 {
-                   DrillDownPageId = AutoRentHeaderCard;
+                   
                 
                 }
                 field("Auto No."; Rec."Auto No.")

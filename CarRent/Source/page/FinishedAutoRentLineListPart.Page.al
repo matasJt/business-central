@@ -1,9 +1,10 @@
-page 50218 AutoRentLineListPart
+page 50230 FinishedAutoRentLineListPart
 {
     PageType = ListPart;
     ApplicationArea = All;
     SourceTable = AutoRentLine;
     Caption = 'Addition services';
+    Editable=false;
 
     layout
     {
@@ -14,8 +15,6 @@ page 50218 AutoRentLineListPart
                 field("Type"; Rec."Type")
                 {
                     ToolTip = 'Specifies the value of the Type field.', Comment = '%';
-                    Editable = Rec.Deleteable = true;
-
                 }
                 field("Row No."; Rec."Row No.")
                 {
@@ -31,18 +30,12 @@ page 50218 AutoRentLineListPart
                 }
                 field("No."; Rec."No.")
                 {
-                    ShowMandatory = true;
-                    NotBlank = true;
-                    Editable = Rec.Deleteable = true;
 
                 }
                 field("Count"; Rec.Quantity)
                 {
-                    ShowMandatory = true;
-                    NotBlank = true;
-                    Editable = (Rec."No." <> '') and Rec.Deleteable = true;
-                    ToolTip = 'Specifies the value of the Count field.', Comment = '%';
 
+                    ToolTip = 'Specifies the value of the Count field.', Comment = '%';
                 }
                 field(Price; Rec.Price)
                 {
@@ -55,10 +48,5 @@ page 50218 AutoRentLineListPart
             }
         }
     }
-    trigger OnModifyRecord(): Boolean
-    begin
-        Rec.UpdateTotalRentPrice();
-    end;
 
-    
 }

@@ -74,14 +74,6 @@ table 50216 AutoRentLine
         NewRowNo();
     end;
 
-    trigger OnModify()
-    var
-        ModifyMsg: Label 'Generated record cannot be modified';
-    begin
-        if Deleteable = false then
-            Error(ModifyMsg);
-    end;
-
     trigger OnDelete()
     var
         DeleteMsg: Label 'Generated record cannot be deleted';
@@ -112,7 +104,6 @@ table 50216 AutoRentLine
             Sum := Price * Quantity;
             Description := Resource.Name;
         end;
-
         Modify(false);
     end;
 
@@ -128,6 +119,23 @@ table 50216 AutoRentLine
 
         while Rec.Get(Rec."Row No.") do
             Rec."Row No." := NoSeries.GetNextNo(DocNo.Code);
+    end;
+
+    procedure UpdateTotalRentPrice()
+     var
+        AutoRentHeader: Record AutoRentHeader;
+        Line: Record AutoRentLine;
+        Total: Decimal;
+    begin
+        Line.Reset();
+        Line.SetRange("Document No.",Rec."Document No.");
+        if Line.FindSet() then
+            repeat
+                Total += Line.Sum;
+            until Line.Next() = 0;
+        AutoRentHeader.Get(Rec."Document No.");
+        AutoRentHeader."Rent Price" := Total;
+       AutoRentHeader. Modify(false);
     end;
 
 }

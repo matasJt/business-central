@@ -64,36 +64,27 @@ page 50207 AutoList
     {
         area(Processing)
         {
-            action(ShowReservation)
+            action(OpenReservation)
             {
-                Caption = 'Show reservations';
-                ToolTip = 'Opens page of reservations of selected cars';
-                Image = ShowList;
+                Caption = 'Open reservations';
+                ToolTip = 'Open page of active reservations from today.';
+                Image = OpenJournal;
                 trigger OnAction()
                 var
                     AutoReservation: Record AutoReservation;
-                    AutoReservationList: Page AutoReservationList;
                 begin
-                    Page.Run(Page::AutoReservationList);
-                end;
-            }
-            action(OpenReservation)
-            {
-                Caption = 'Open active reservations';
-                ToolTip = 'Open page of active reservations for selected car';
-                Image = Open;
-                trigger OnAction()
-                begin
-
+                    AutoReservation.Reset();
+                    AutoReservation.SetFilter("Reservation Start Time", '>=%1', CreateDateTime(Today, 0T));
+                    Page.Run(Page::AutoAvailableReservationsPage,AutoReservation);
                 end;
             }
         }
         area(Promoted)
-        {
-            group(Reservation)
-            {
-                actionref(Open; ShowReservation) { }
-            }
+        {      
+                actionref(OpenReservation_Promoted; OpenReservation)
+                {
+                }
+            
         }
     }
 }

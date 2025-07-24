@@ -19,7 +19,7 @@ table 50211 AutoRentHeader
             TableRelation = Customer;
             trigger OnValidate()
             begin
-                CheckClient(); // Your existing validation logic
+                CheckClient();
             end;
         }
         field(3; "Driving License"; Media)
@@ -66,9 +66,9 @@ table 50211 AutoRentHeader
         }
         field(8; "Rent Price"; Decimal)
         {
+            Editable = false;
             Caption = 'Rent Price';
-
-            DataClassification = CustomerContent;
+            DataClassification=CustomerContent;
         }
         field(9; Status; Enum RentStatusType)
         {
@@ -103,7 +103,6 @@ table 50211 AutoRentHeader
         Auto: Record Auto;
         BlockedMsg: Label 'This client is blocked, transactions cannot be made.';
         DebtMsg: Label 'This client has debt and cannot make new reservations.';
-        AutoMsg: Label 'Auto must be selected';
     begin
         if Customer.IsBlocked() then
             Error(BlockedMsg);
