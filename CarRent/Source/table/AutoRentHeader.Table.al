@@ -27,6 +27,7 @@ table 50211 AutoRentHeader
             Caption = 'Driving License';
             DataClassification = CustomerContent;
         }
+
         field(4; "Creation Date"; Date)
         {
             Caption = 'Creation Date';
@@ -44,12 +45,6 @@ table 50211 AutoRentHeader
             Caption = 'Reservation starts';
             ToolTip = 'Start time of reservation';
             DataClassification = CustomerContent;
-            trigger OnValidate()
-            var
-                AutoReservation: Record AutoReservation;
-            begin
-                AutoReservation.IsReservationDateValid(Rec);
-            end;
         }
         field(7; "Reservation End Time"; DateTime)
         {
@@ -57,18 +52,12 @@ table 50211 AutoRentHeader
             ToolTip = 'End time of reservation';
             DataClassification = CustomerContent;
             NotBlank = true;
-            trigger OnValidate()
-            var
-                AutoReservation: Record AutoReservation;
-            begin
-                AutoReservation.IsReservationDateValid(Rec);
-            end;
         }
         field(8; "Rent Price"; Decimal)
         {
             Editable = false;
             Caption = 'Rent Price';
-            DataClassification=CustomerContent;
+            DataClassification = CustomerContent;
         }
         field(9; Status; Enum RentStatusType)
         {
@@ -96,7 +85,7 @@ table 50211 AutoRentHeader
     /// <summary>
     /// Check if client is not banned and doesn't have debt, validate other must select fields
     /// </summary>
-    procedure CheckClient()
+    local procedure CheckClient()
     var
         CustomerLedger: Record "Cust. Ledger Entry";
         Customer: Record Customer;

@@ -9,11 +9,12 @@ table 50219 AutoDamage
             DataClassification = ToBeClassified;
             
         }
-        field(2; "Row No."; Code[30])
+        field(2; "Row No."; Integer)
         {
             DataClassification = ToBeClassified;
+            AutoIncrement=true;
         }
-        field(3; Date; Date)
+        field(3; Date; DateTime)
         {
             DataClassification = ToBeClassified;
         }
@@ -34,26 +35,5 @@ table 50219 AutoDamage
             Clustered = true;
         }
     }
-    
-
-    trigger OnInsert()
-    begin
-        
-    end;
-    
-    trigger OnModify()
-    begin
-        
-    end;
-    
-    trigger OnDelete()
-    begin
-        
-    end;
-    
-    trigger OnRename()
-    begin
-        
-    end;
     
 }

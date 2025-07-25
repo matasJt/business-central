@@ -4,8 +4,10 @@ page 50227 FinishedAutoRentHeaderList
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = FinishedAutoRentHeader;
-    Editable=false;
-    
+    Editable = false;
+    Caption = 'Finished rent contracts list';
+    CardPageId = FinishedAutoRentHeaderCard;
+
     layout
     {
         area(Content)

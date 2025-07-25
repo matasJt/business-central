@@ -45,35 +45,4 @@ table 50209 AutoReservation
             Clustered = true;
         }
     }
-
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-      
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-    
-    /// <summary>
-    /// Check if reservation start and end date is valid on selected car
-    /// </summary>
-    /// <param name="AutoRentHeader">Record AutoRentHeader.</param>
-    procedure IsReservationDateValid(AutoRentHeader: Record AutoRentHeader)
-    begin
-        
-    end;
-
 }

@@ -92,17 +92,34 @@ page 50214 AutoRentHeaderCard
                         exit;
                     Rec.Status := Rec.Status::Issued;
                     Rec.Modify(false);
-                    //check if whole fields are not empty
+                    //check if all fields are not empty
                     InsertReservation();
                 end;
             }
             action(Return)
             {
-                Caption = 'Return automibile';
+                Caption = 'Return Car';
                 Image = Return;
-                ToolTip = 'Return automobile to rent place';
+                ToolTip = 'Return car to rent place';
                 trigger OnAction()
                 begin
+                    if Rec.Status = Rec.Status::Issued then
+                        ReturnCar();
+                end;
+            }
+            action(Damage)
+            {
+                Caption = 'Add Damage';
+                Image = Add;
+                ToolTip = 'Registere damage to this car in this reservation context';
+                trigger OnAction()
+                var
+                    AutoRentDamageList: Page AutoRentDamageList;
+                begin
+                    if Rec.Status = Rec.Status::Issued then begin
+                        AutoRentDamageList.SetDocumentNo(Rec."No.");
+                        AutoRentDamageList.Run();
+                    end;
 
                 end;
             }
@@ -158,7 +175,6 @@ page 50214 AutoRentHeaderCard
             Error(DateError2);
 
         AutoReservation.Reset();
-        // AutoReservation.FindSet();
         AutoReservation.SetRange("Auto No.", Rec."Auto No.");
         AutoReservation.SetFilter("Reservation Start Time", '<=%1', Rec."Reservation End Time");
         AutoReservation.SetFilter("Reservation End Time", '>=%1', Rec."Reservation Start Time");
@@ -170,7 +186,16 @@ page 50214 AutoRentHeaderCard
     local procedure InsertReservation()
     var
         AutoReservation: Record AutoReservation;
+        RentError: Label 'This car is already reserved for this time during filling.';
     begin
+        if AutoReservation.FindSet() THEN
+            REPEAT
+                IF (AutoReservation."Auto No." = Rec."Auto No.") and
+                   (Rec."Reservation Start Time" <= AutoReservation."Reservation End Time") and
+                   (Rec."Reservation End Time" >= AutoReservation."Reservation Start Time") then
+                    Error(RentError);
+            UNTIL AutoReservation.NEXT = 0;
+
         AutoReservation.Init();
         AutoReservation."Auto No." := Rec."Auto No.";
         AutoReservation."No." := Rec."No.";
@@ -180,6 +205,62 @@ page 50214 AutoRentHeaderCard
         AutoReservation.Insert(false);
     end;
 
+    local procedure ReturnCar()
+    var
+        FinishedAutoRentHeader: Record FinishedAutoRentHeader;
+        FinishedAutoRentLine: Record FinishedAutoRentLine;
+        AutoRentLine: Record AutoRentLine;
+        AutoDamage: Record AutoDamage;
+        AutoRentDamage: Record AutoRentDamage;
+        ErrorMsg: Label 'It already returned';
+        TempBlob: Codeunit "Temp Blob";
+        InStream: InStream;
+        OutStream: OutStream;
+
+    begin
+        FinishedAutoRentHeader.Reset();
+        if FinishedAutoRentHeader.Get(Rec."No.") then
+            Error(ErrorMsg);
+        AutoRentDamage.SetRange("Document No.", Rec."No.");
+        if AutoRentDamage.FindSet() then
+            repeat
+                AutoDamage.Init();
+                AutoDamage."Auto No." := Rec."Auto No.";
+                AutoDamage.Date := AutoRentDamage.Date;
+                AutoDamage.Description := AutoRentDamage.Description;
+                AutoDamage.Status := AutoDamageStatus::Damaged;
+                AutoDamage.Insert(true);
+            until AutoRentDamage.Next() = 0;
+        FinishedAutoRentHeader.Init();
+        FinishedAutoRentHeader."No." := Rec."No.";
+        FinishedAutoRentHeader."Client No." := Rec."Client No.";
+        FinishedAutoRentHeader."Auto No." := Rec."Auto No.";
+        FinishedAutoRentHeader."Creation Date" := Rec."Creation Date";
+        FinishedAutoRentHeader."Reservation Start Time" := Rec."Reservation Start Time";
+        FinishedAutoRentHeader."Reservation End Time" := Rec."Reservation End Time";
+        TempBlob.CreateOutStream(OutStream);
+        Rec."Driving License".ExportStream(OutStream);
+        TempBlob.CreateInStream(InStream);
+        FinishedAutoRentHeader."Driving License".ImportStream(InStream,'Driving License Copy');
+        FinishedAutoRentHeader."Rent Price" := Rec."Rent Price";
+
+        AutoRentLine.Reset();
+        AutoRentLine.SetRange("Document No.", Rec."No.");
+        if AutoRentLine.FindSet() then
+            repeat
+                FinishedAutoRentLine.Init();
+                FinishedAutoRentLine."Document No." := AutoRentLine."Document No.";
+                FinishedAutoRentLine."Row No." := AutoRentLine."Row No.";
+                FinishedAutoRentLine.Type := AutoRentLine.Type;
+                FinishedAutoRentLine."No." := AutoRentLine."No.";
+                FinishedAutoRentLine.Description := AutoRentLine.Description;
+                FinishedAutoRentLine.Quantity := AutoRentLine.Quantity;
+                FinishedAutoRentLine.Sum := AutoRentLine.Sum;
+                FinishedAutoRentLine.Insert(true);
+            until AutoRentLine.Next() = 0;
+        FinishedAutoRentHeader.Insert(true);
+        Rec.Delete(true);
+    end;
 
     var
         Selected: Boolean;

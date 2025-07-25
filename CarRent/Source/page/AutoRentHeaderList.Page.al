@@ -47,10 +47,6 @@ page 50213 AutoRentHeaderList
                 }
             }
         }
-        area(Factboxes)
-        {
-
-        }
     }
      actions
     {

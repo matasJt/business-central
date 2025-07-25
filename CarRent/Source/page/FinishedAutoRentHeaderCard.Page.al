@@ -4,13 +4,15 @@ page 50228 FinishedAutoRentHeaderCard
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = FinishedAutoRentHeader;
-    Editable=false;
+    Editable = false;
+    Caption = 'Finished rent contract';
+
 
     layout
     {
         area(Content)
         {
-            group(GroupName)
+            group(Main)
             {
                 field("No."; Rec."No.")
                 {
@@ -41,10 +43,20 @@ page 50228 FinishedAutoRentHeaderCard
                     ToolTip = 'Specifies the value of the Rent Price field.', Comment = '%';
                 }
             }
+            group(Addition)
+            {
+                part(Services; AutoRentLineListPart)
+                {
+                    SubPageLink = "Document No." = FIELD("No.");
+                    ApplicationArea = All;
+                    Visible = Rec."No." <> '';
+                }
+            }
         }
+
         area(factboxes)
         {
-            part(Picture; DrivingLicense)
+            part(Picture; DrivingLicenseCopy)
             {
                 SubPageLink = "No." = FIELD("No.");
             }

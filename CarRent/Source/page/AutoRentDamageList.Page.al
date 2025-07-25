@@ -1,12 +1,11 @@
-page 50224 AutoRentDamageList 
+page 50224 AutoRentDamageList
 {
     PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = None;
     SourceTable = AutoRentDamage;
-    Editable=false;
-    Caption='Auto Rent Damage List';
-    
+    Caption = 'Auto Rent Damage List';
+
     layout
     {
         area(Content)
@@ -32,19 +31,12 @@ page 50224 AutoRentDamageList
             }
         }
     }
-    
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-                
-                trigger OnAction()
-                begin
-                    
-                end;
-            }
-        }
-    }
+    /// <summary>
+    /// Set range for specific rent No.
+    /// </summary>
+    /// <param name="No">Code[30].</param>
+    procedure SetDocumentNo(No: Code[30])
+    begin
+        Rec.SetRange("Document No.", No);
+    end;
 }

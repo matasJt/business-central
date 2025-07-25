@@ -14,7 +14,7 @@ page 50215 DrivingLicense
             field(Image; Rec."Driving License")
             {
                 ApplicationArea = All;
-                ShowCaption = false;
+                ShowCaption=false;
             }
         }
 
@@ -55,8 +55,6 @@ page 50215 DrivingLicense
                     Rec."Driving License".ImportStream(InStream, FileName);
 
                     Rec.Modify(false);
-
-
                 end;
             }
             action(Delete)

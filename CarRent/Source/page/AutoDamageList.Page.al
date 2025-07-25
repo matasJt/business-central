@@ -4,9 +4,9 @@ page 50221 AutoDamageList
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = AutoDamage;
-    Editable=false;
-    Caption='Auto Damage List';
-    
+    Editable = false;
+    Caption = 'Auto Damage List';
+
     layout
     {
         area(Content)
@@ -15,6 +15,7 @@ page 50221 AutoDamageList
             {
                 field("Auto No."; Rec."Auto No.")
                 {
+                    DrillDownPageId = AutoCard;
                     ToolTip = 'Specifies the value of the Auto No. field.', Comment = '%';
                 }
                 field("Row No."; Rec."Row No.")
@@ -36,18 +37,28 @@ page 50221 AutoDamageList
             }
         }
     }
-    
+
     actions
     {
         area(Processing)
         {
-            action(ActionName)
+            action(Fixed)
             {
-                
+                Caption = 'Fixed';
+                ToolTip = 'Set damage to fixed status';
+                Image = Change;
                 trigger OnAction()
                 begin
-                    
+                    Rec.Status := Rec.Status::Fixed;
+                    Rec.Modify(false);
                 end;
+            }
+        }
+        area(Promoted)
+        {
+
+            actionref(Fixed_Promoted; Fixed)
+            {
             }
         }
     }

@@ -533,6 +533,16 @@
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoDamageList - Control Status - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 451754674 - Action 744835066 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Set damage to fixed status</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoDamageList - Action Fixed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 451754674 - Action 744835066 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fixed</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoDamageList - Action Fixed - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4028577999 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto List</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -593,10 +603,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method CheckReservationDate - NamedType DateError2</note>
         </trans-unit>
+        <trans-unit id="Page 2425311731 - Method 4062881225 - NamedType 2771784383" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This car is already reserved for this time during filling.</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method InsertReservation - NamedType RentError</note>
+        </trans-unit>
+        <trans-unit id="Page 2425311731 - Method 594974238 - NamedType 331638123" size-unit="char" translate="yes" xml:space="preserve">
+          <source>It already returned</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method ReturnCar - NamedType ErrorMsg</note>
+        </trans-unit>
         <trans-unit id="Page 2425311731 - Control 3959405189 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Main details</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Control Main - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2425311731 - Action 3601608341 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Registere damage to this car in this reservation context</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Damage - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2425311731 - Action 3601608341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Add Damage</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Damage - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2425311731 - Action 2620050775 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Change status to issued, means rent is active.</source>
@@ -609,12 +639,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Issued - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2425311731 - Action 3223440110 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Return automobile to rent place</source>
+          <source>Return car to rent place</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Return - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2425311731 - Action 3223440110 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Return automibile</source>
+          <source>Return Car</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Return - Property Caption</note>
         </trans-unit>
@@ -733,6 +763,16 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicense - Action ImportPicture - Method OnAction - NamedType CreateMsg</note>
         </trans-unit>
+        <trans-unit id="Page 3684697521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Driving License</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page DrivingLicenseCopy - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3026627893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finished rent contract</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FinishedAutoRentHeaderCard - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3026627893 - Control 4097338916 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Auto No. field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
@@ -767,6 +807,11 @@
           <source>Specifies the value of the Reservation starts field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FinishedAutoRentHeaderCard - Control Reservation Start Time - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 221242719 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Finished rent contracts list</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page FinishedAutoRentHeaderList - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 221242719 - Control 4097338916 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the Auto No. field.</source>
