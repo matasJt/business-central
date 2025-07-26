@@ -4,9 +4,9 @@ page 50210 AutoReservationList
     UsageCategory = None;
     SourceTable = AutoReservation;
     Editable = true;
-    InsertAllowed=false;
-    ModifyAllowed=false;
-    Caption= 'Auto Reservation List';
+    InsertAllowed = false;
+    ModifyAllowed = false;
+    Caption = 'Auto Reservation List';
 
     layout
     {
@@ -16,28 +16,27 @@ page 50210 AutoReservationList
             {
                 field("No."; Rec."No.")
                 {
-                   DrillDownPageId = AutoRentHeaderCard;
                 
                 }
                 field("Auto No."; Rec."Auto No.")
                 {
-                   
-                   
+
+
                 }
                 field("Client No."; Rec."Client No.")
                 {
-                   
-                   
+
+
                 }
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
-                   
-                   
+
+
                 }
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
-                   
-                  
+
+
                 }
 
             }

@@ -75,7 +75,7 @@ page 50207 AutoList
                 begin
                     AutoReservation.Reset();
                     AutoReservation.SetFilter("Reservation Start Time", '>=%1', CreateDateTime(Today, 0T));
-                    Page.Run(Page::AutoAvailableReservationsPage,AutoReservation);
+                    Page.Run(Page::AutoAvailableReservations,AutoReservation);
                 end;
             }
         }

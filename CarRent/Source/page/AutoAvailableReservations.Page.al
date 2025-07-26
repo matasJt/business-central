@@ -1,4 +1,4 @@
-page 50225 AutoAvailableReservationsPage
+page 50225 AutoAvailableReservations
 {
    
     PageType = List;

@@ -76,7 +76,7 @@ page 50208 AutoCard
                 begin
                     AutoReservation.Reset();
                     AutoReservation.SetRange("Auto No.", Rec."No.");
-                    Page.Run(PAge::AutoReservationList,AutoReservation);
+                    Page.Run(Page::AutoReservationList,AutoReservation);
                 end;
             }
         }

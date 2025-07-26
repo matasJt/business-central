@@ -473,10 +473,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table FinishedAutoRentLine - Field Type - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 2332919378 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 2693029039 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Active Reservations From Today</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AutoAvailableReservationsPage - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoAvailableReservations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1925652070 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto mark List</source>
@@ -638,6 +638,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Issued - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2425311731 - Action 3375155882 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Create Report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Report - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2425311731 - Action 3223440110 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Return car to rent place</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -647,11 +652,6 @@
           <source>Return Car</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Return - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2425311731 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Issue</source>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1942823937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Auto Rent List</source>
@@ -887,6 +887,21 @@
           <source>Specifies the value of the Type field.</source>
           <note from="Developer" annotates="general" priority="2">%</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page FinishedAutoRentLineListPart - Control Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Report 1942823937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto rent report</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report AutoRentHeaderList - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Report 1942823937 - ReportLayout 3100412874 - Property 2166945456" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto rent list with services</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report AutoRentHeaderList - ReportLayout AutoRentHeaderPrintLayout - Property Summary</note>
+        </trans-unit>
+        <trans-unit id="Report 1942823937 - ReportLayout 3100412874 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Auto rent list (print)</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Report AutoRentHeaderList - ReportLayout AutoRentHeaderPrintLayout - Property Caption</note>
         </trans-unit>
       </group>
     </body>

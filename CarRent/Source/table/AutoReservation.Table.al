@@ -8,6 +8,7 @@ table 50209 AutoReservation
         {
             Caption = 'No.';
             DataClassification = ToBeClassified;
+           TableRelation = AutoRentHeader; 
         }
         field(2; "Auto No."; Code[30])
         {

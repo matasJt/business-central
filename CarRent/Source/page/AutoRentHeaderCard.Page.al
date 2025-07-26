@@ -64,6 +64,7 @@ page 50214 AutoRentHeaderCard
                     SubPageLink = "Document No." = FIELD("No.");
                     ApplicationArea = All;
                     Visible = Rec."No." <> '';
+                    Editable = Rec.Status <> Rec.Status::Issued;
                 }
             }
         }
@@ -118,21 +119,35 @@ page 50214 AutoRentHeaderCard
                 begin
                     if Rec.Status = Rec.Status::Issued then begin
                         AutoRentDamageList.SetDocumentNo(Rec."No.");
-                        AutoRentDamageList.Run();
+                        AutoRentDamageList.RunModal();
                     end;
 
+                end;
+            }
+            action(Report)
+            {
+                Caption = 'Create Report';
+                Image = Report;
+                trigger OnAction()
+                var
+                    AutoRentHeaderRec: Record AutoRentHeader;
+                begin
+                    AutoRentHeaderRec.SetRange("No.", Rec."No.");
+                    Report.Run(Report::AutoRentHeaderList, true, false, AutoRentHeaderRec);
                 end;
             }
         }
         area(Promoted)
         {
-            group(Category_Process)
+            actionref(Issued_Promoted; Issued)
             {
-                Caption = 'Issue';
+            }
+            actionref(Report_Promoted; Report)
+            {
+            }
 
-                actionref(Issued_Promoted; Issued)
-                {
-                }
+            actionref(Damage_Promoted; Damage)
+            {
             }
         }
     }
@@ -209,6 +224,7 @@ page 50214 AutoRentHeaderCard
     var
         FinishedAutoRentHeader: Record FinishedAutoRentHeader;
         FinishedAutoRentLine: Record FinishedAutoRentLine;
+        AutoReservation: Record AutoReservation;
         AutoRentLine: Record AutoRentLine;
         AutoDamage: Record AutoDamage;
         AutoRentDamage: Record AutoRentDamage;
@@ -241,7 +257,7 @@ page 50214 AutoRentHeaderCard
         TempBlob.CreateOutStream(OutStream);
         Rec."Driving License".ExportStream(OutStream);
         TempBlob.CreateInStream(InStream);
-        FinishedAutoRentHeader."Driving License".ImportStream(InStream,'Driving License Copy');
+        FinishedAutoRentHeader."Driving License".ImportStream(InStream, 'Driving License Copy');
         FinishedAutoRentHeader."Rent Price" := Rec."Rent Price";
 
         AutoRentLine.Reset();
@@ -259,6 +275,8 @@ page 50214 AutoRentHeaderCard
                 FinishedAutoRentLine.Insert(true);
             until AutoRentLine.Next() = 0;
         FinishedAutoRentHeader.Insert(true);
+        AutoReservation.Get(Rec."No.", Rec."Auto No.");
+        AutoReservation.Delete(true);
         Rec.Delete(true);
     end;
 

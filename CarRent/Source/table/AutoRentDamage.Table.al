@@ -7,11 +7,13 @@ table 50223 AutoRentDamage
         field(1;"Document No."; Code[30])
         {
             DataClassification = ToBeClassified;
+            Editable=false;
         }
         field(2; "Row No."; Integer)
         {
             DataClassification = ToBeClassified;
             AutoIncrement=true;
+            Editable=false;
         }
         field(3; Date; DateTIme)
         {

@@ -4,7 +4,7 @@ page 50213 AutoRentHeaderList
     UsageCategory = Lists;
     SourceTable = AutoRentHeader;
     Caption = 'Auto Rent List';
-    Editable = false;
+    Editable = true;
     CardPageId = AutoRentHeaderCard;
 
     layout
