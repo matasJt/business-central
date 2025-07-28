@@ -5,7 +5,6 @@ report 50235 AutoRentHeaderList
     DefaultRenderingLayout = AutoRentHeaderPrintLayout;
     Caption = 'Auto rent report';
 
-
     dataset
     {
 
@@ -14,8 +13,9 @@ report 50235 AutoRentHeaderList
             DataItemTableView = sorting("No.");
             column(DocumentNo; "No.") { }
             column(CarNo; "Auto No.") { }
+            column(Rent_Price;"Rent Price"){}
             column(ReservationPeriod; Format("Reservation Start Time") + ' - ' + Format("Reservation End Time")) { }
-            
+
             dataitem(AutoRentLine; "AutoRentLine")
             {
                 DataItemTableView = sorting("Document No.");
@@ -24,6 +24,14 @@ report 50235 AutoRentHeaderList
                 column(Quantity; Quantity) { }
                 column(Price; Price) { }
                 column(Sum; Sum) { }
+
+                trigger OnAfterGetRecord()
+                begin
+                    if AutoRentLine.Deleteable = false then
+                        RentalAmount := AutoRentLine.Sum
+                    else
+                        ServiceAmount += AutoRentLine.Sum;
+                end;
             }
             dataitem(Customer; Customer)
             {
@@ -45,7 +53,20 @@ report 50235 AutoRentHeaderList
                 {
                 }
             }
+
+
         }
+         dataitem(TotalPrice; Integer)
+            {
+
+                column(ServiceAmount;ServiceAmount) { }
+                column(RentalAmount;RentalAmount){}
+
+                trigger OnPreDataItem()
+                begin
+                    SetRange(Number, 1);
+                end;
+            }
     }
 
     rendering
@@ -53,13 +74,11 @@ report 50235 AutoRentHeaderList
         layout(AutoRentHeaderPrintLayout)
         {
             Type = Word;
-            Caption = 'Auto rent list (print)';
-            Summary = 'Auto rent list with services';
+            Caption = 'Auto rent (print)';
+            Summary = 'Auto rent with services';
             LayoutFile = 'doc/AutoRentHeaderList.docx';
         }
     }
-
-
 
 
     var

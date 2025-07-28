@@ -6,15 +6,13 @@ table 50202 AutoBrand
     {
         field(1; Code; Code[30])
         {
-            ToolTip = 'Unqiue identifier';
+            ToolTip = 'Unqiue code for car brand';
             DataClassification = CustomerContent;
-            Caption = 'Code';
         }
         field(2; Description; Text[100])
         {
             DataClassification = CustomerContent;
-            Caption = 'Description';
-            ToolTip = 'Description of the car brand.', Comment = 'Laukas automobilio markės aprašui.';
+            ToolTip = 'Description of the car brand.';
         }
     }
 
@@ -25,33 +23,4 @@ table 50202 AutoBrand
             Clustered = true;
         }
     }
-
-    fieldgroups
-    {
-        // Add changes to field groups here
-    }
-
-    var
-        myInt: Integer;
-
-    trigger OnInsert()
-    begin
-
-    end;
-
-    trigger OnModify()
-    begin
-
-    end;
-
-    trigger OnDelete()
-    begin
-
-    end;
-
-    trigger OnRename()
-    begin
-
-    end;
-
 }

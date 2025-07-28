@@ -14,19 +14,17 @@ page 50224 AutoRentDamageList
             {
                 field("Document No."; Rec."Document No.")
                 {
-                    ToolTip = 'Specifies the value of the Document No. field.', Comment = '%';
-                }
-                field("Row No."; Rec."Row No.")
-                {
-                    ToolTip = 'Specifies the value of the Row No. field.', Comment = '%';
+                    Caption = 'Rent Document No.';
+                    ToolTip = 'Specifies unique code for rent document', Comment = '%';
                 }
                 field("Date"; Rec."Date")
                 {
-                    ToolTip = 'Specifies the value of the Date field.', Comment = '%';
+                    ToolTip = 'Specifies when damage was made to the car.', Comment = '%';
                 }
                 field(Description; Rec.Description)
                 {
-                    ToolTip = 'Specifies the value of the Description field.', Comment = '%';
+                    InstructionalText='Damage details';
+                    ToolTip = 'Details about damage.', Comment = '%';
                 }
             }
         }

@@ -18,21 +18,19 @@ page 50221 AutoDamageList
                     DrillDownPageId = AutoCard;
                     ToolTip = 'Specifies the value of the Auto No. field.', Comment = '%';
                 }
-                field("Row No."; Rec."Row No.")
-                {
-                    ToolTip = 'Specifies the value of the Row No. field.', Comment = '%';
-                }
                 field("Date"; Rec."Date")
                 {
-                    ToolTip = 'Specifies the value of the Date field.', Comment = '%';
+
+                    ToolTip = 'Specifies then damage was made.', Comment = '%';
                 }
                 field(Description; Rec.Description)
                 {
-                    ToolTip = 'Specifies the value of the Description field.', Comment = '%';
+                    ToolTip = 'Description of made damage to car', Comment = '%';
                 }
                 field(Status; Rec.Status)
                 {
-                    ToolTip = 'Specifies the value of the Status field.', Comment = '%';
+
+                    ToolTip = 'Status of damage, fixed or damaged', Comment = '%';
                 }
             }
         }
@@ -45,7 +43,7 @@ page 50221 AutoDamageList
             action(Fixed)
             {
                 Caption = 'Fixed';
-                ToolTip = 'Set damage to fixed status';
+                ToolTip = 'Set current damage record to fixed';
                 Image = Change;
                 trigger OnAction()
                 begin

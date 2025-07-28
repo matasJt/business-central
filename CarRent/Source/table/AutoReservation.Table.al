@@ -6,35 +6,30 @@ table 50209 AutoReservation
     {
         field(1; "No."; Code[30])
         {
-            Caption = 'No.';
-            DataClassification = ToBeClassified;
-           TableRelation = AutoRentHeader; 
+            DataClassification = CustomerContent;
+            TableRelation = AutoRentHeader;
         }
         field(2; "Auto No."; Code[30])
         {
-            Caption = 'Auto No.';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             TableRelation = Auto;
 
         }
         field(3; "Client No."; Code[30])
         {
-            Caption = 'Client No.';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             TableRelation = Customer;
-            
+
         }
         field(4; "Reservation Start Time"; DateTime)
         {
-            Caption = 'Reservation starts';
             ToolTip = 'Start time of reservation';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(5; "Reservation End Time"; DateTime)
         {
-            Caption = 'Reservation ends';
             ToolTip = 'End time of reservation';
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
 
     }

@@ -1,60 +1,35 @@
 table 50223 AutoRentDamage
 {
-    DataClassification = ToBeClassified;
-    
+    DataClassification = CustomerContent;
+
     fields
     {
-        field(1;"Document No."; Code[30])
+        field(1; "Document No."; Code[30])
         {
-            DataClassification = ToBeClassified;
-            Editable=false;
+            DataClassification = CustomerContent;
+            Editable = false;
         }
         field(2; "Row No."; Integer)
         {
-            DataClassification = ToBeClassified;
-            AutoIncrement=true;
-            Editable=false;
+            DataClassification = CustomerContent;
+            AutoIncrement = true;
         }
-        field(3; Date; DateTIme)
+        field(3; Date; DateTime)
         {
-            DataClassification = ToBeClassified;
+            ToolTip = 'Damage registration date';
+            DataClassification = CustomerContent;
         }
         field(4; Description; Text[100])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
     }
-    
+
     keys
     {
-        key(PK; "Document No.","Row No.")
+        key(PK; "Document No.", "Row No.")
         {
             Clustered = true;
         }
     }
-    
-    
-    var
-        myInt: Integer;
-    
-    trigger OnInsert()
-    begin
-        
-    end;
-    
-    trigger OnModify()
-    begin
-        
-    end;
-    
-    trigger OnDelete()
-    begin
-        
-    end;
-    
-    trigger OnRename()
-    begin
-        
-    end;
-    
 }

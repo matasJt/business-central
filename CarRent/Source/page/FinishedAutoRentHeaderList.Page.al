@@ -14,35 +14,61 @@ page 50227 FinishedAutoRentHeaderList
         {
             repeater(GroupName)
             {
+                Caption = 'Main details';
                 field("No."; Rec."No.")
                 {
-                    ToolTip = 'Specifies the value of the No. field.', Comment = '%';
+                   
                 }
-                field("Client No."; Rec."Client No.")
+               field("Client No."; Rec."Client No.")
                 {
-                    ToolTip = 'Specifies the value of the Client No. field.', Comment = '%';
-                }
-                field("Auto No."; Rec."Auto No.")
-                {
-                    ToolTip = 'Specifies the value of the Auto No. field.', Comment = '%';
+                    ToolTip = 'Specfifies client';
                 }
                 field("Creation Date"; Rec."Creation Date")
                 {
-                    ToolTip = 'Specifies the value of the Creation Date field.', Comment = '%';
+                    ToolTip = 'Creation date of a contract';
+                }
+                field("Auto No."; Rec."Auto No.")
+                {
+                    ToolTip = 'Selection of car from auto list';
                 }
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
-                    ToolTip = 'Specifies the value of the Reservation starts field.', Comment = '%';
+                    ToolTip = 'Specifies when reservation starts';
                 }
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
-                    ToolTip = 'Specifies the value of the Reservation ends field.', Comment = '%';
+                    ToolTip = 'Specifies when reservation ends';
                 }
                 field("Rent Price"; Rec."Rent Price")
                 {
-                    ToolTip = 'Specifies the value of the Rent Price field.', Comment = '%';
+                    ToolTip = 'Initial rent price without services';
                 }
             }
         }
     }
+    actions
+    {
+        area(Processing)
+        {
+            action(Report)
+            {
+                Caption = 'Create Report';
+                Image = Report;
+                ToolTip = 'Created report of finished rent for specific car';
+                trigger OnAction()
+                begin
+                    Report.RunModal(Report::FinishedAutoRent, true, true);
+                end;
+            }
+        }
+        area(Promoted)
+        {
+
+            actionref(Report_Promoted; Report)
+            {
+            }
+
+        }
+    }
+
 }

@@ -2,9 +2,9 @@ page 50203 AutoBrandist
 {
     PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = Administration;
     SourceTable = AutoBrand;
-    Caption = 'Auto mark List';
+    Caption = 'Auto Brand List';
 
     layout
     {
@@ -14,31 +14,12 @@ page 50203 AutoBrandist
             {
                 field(Code; Rec.Code)
                 {
-
+                    ToolTip = 'Unique code for car brand';
                 }
-                field(Description;Rec.Description)
+                field(Description; Rec.Description)
                 {
-
+                    ToolTip = 'Addition information about brand';
                 }
-            }
-        }
-        area(Factboxes)
-        {
-
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-
-                trigger OnAction()
-                begin
-
-                end;
             }
         }
     }

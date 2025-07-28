@@ -1,30 +1,32 @@
 table 50219 AutoDamage
 {
-    DataClassification = ToBeClassified;
+    DataClassification = CustomerContent;
     
     fields
     {
         field(1;"Auto No."; Code[30])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             
         }
         field(2; "Row No."; Integer)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             AutoIncrement=true;
         }
         field(3; Date; DateTime)
         {
-            DataClassification = ToBeClassified;
+            ToolTip='Damage registration date';
+            DataClassification = CustomerContent;
         }
         field(4; Description; Text[100])
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(5; Status; Enum AutoDamageStatus)
         {
-            DataClassification = ToBeClassified;
+            ToolTip='Damage status - fixed or damaged ';
+            DataClassification = CustomerContent;
         }
     }
     

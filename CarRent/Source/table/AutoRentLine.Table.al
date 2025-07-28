@@ -7,23 +7,23 @@ table 50216 AutoRentLine
         field(1; "Document No."; Code[30])
         {
             Editable = false;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(2; "Row No."; Code[30])
         {
             Editable = false;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(3; Type; Enum RentLineType)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(4; "No."; Code[30])
         {
             TableRelation = if (Type = const(Resource)) Resource
             else
             Item;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             trigger OnValidate()
             begin
                 if "Row No." <> '' then
@@ -33,11 +33,11 @@ table 50216 AutoRentLine
         field(5; Description; Text[50])
         {
             Editable = false;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(6; Quantity; Integer)
         {
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
             trigger OnValidate()
             begin
                 FillFields();
@@ -46,18 +46,18 @@ table 50216 AutoRentLine
         field(7; Price; Decimal)
         {
             Editable = false;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(8; Sum; Decimal)
         {
             Editable = false;
             DecimalPlaces = 2;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
         field(9; Deleteable; Boolean)
         {
             InitValue = true;
-            DataClassification = ToBeClassified;
+            DataClassification = CustomerContent;
         }
     }
 
@@ -122,20 +122,20 @@ table 50216 AutoRentLine
     end;
 
     procedure UpdateTotalRentPrice()
-     var
+    var
         AutoRentHeader: Record AutoRentHeader;
         Line: Record AutoRentLine;
         Total: Decimal;
     begin
         Line.Reset();
-        Line.SetRange("Document No.",Rec."Document No.");
+        Line.SetRange("Document No.", Rec."Document No.");
         if Line.FindSet() then
             repeat
                 Total += Line.Sum;
             until Line.Next() = 0;
         AutoRentHeader.Get(Rec."Document No.");
         AutoRentHeader."Rent Price" := Total;
-       AutoRentHeader. Modify(false);
+        AutoRentHeader.Modify(false);
     end;
 
 }

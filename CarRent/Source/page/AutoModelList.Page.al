@@ -2,7 +2,7 @@ page 50205 AutoModelList
 {
     PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = Administration;
     SourceTable = AutoModel;
     Caption = 'Auto Model List';
 
@@ -14,35 +14,17 @@ page 50205 AutoModelList
             {
                 field("Brand Code"; Rec."Brand Code")
                 {
-
+                    ToolTip = 'Unique code for car brand';
                 }
                 field(Code; Rec."Model Code")
                 {
-
+                    Caption = 'Model Code';
+                    ToolTip = 'Unique code for car brand model';
                 }
                 field(Description; Rec.Description)
                 {
-
+                    ToolTip = 'Addition informatio about car model';
                 }
-            }
-        }
-        area(Factboxes)
-        {
-
-        }
-    }
-
-    actions
-    {
-        area(Processing)
-        {
-            action(ActionName)
-            {
-
-                trigger OnAction()
-                begin
-
-                end;
             }
         }
     }

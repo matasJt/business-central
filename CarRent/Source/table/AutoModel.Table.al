@@ -7,20 +7,18 @@ table 50204 AutoModel
         field(1; "Brand Code"; Code[30])
         {
             DataClassification = CustomerContent;
-            Caption = 'Brand Code';
             TableRelation = AutoBrand.Code;
-            ToolTip = 'Brand code', Comment = 'Laukas automobilio markes kodui.';
+            ToolTip = 'Car brand code';
         }
         field(2; "Model Code"; Code[30])
         {
             DataClassification = CustomerContent;
-            Caption = 'Model Code';
+            ToolTip='Model code of car brand';
         }
         field(3; "Description"; Text[100])
         {
             DataClassification = CustomerContent;
-            Caption = 'Description';
-            ToolTip = 'Description of the car model.', Comment = 'Laukas automobilio modelio aprašui.';
+            ToolTip = 'Description of the car model.';
         }
     }
 

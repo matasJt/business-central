@@ -15,7 +15,6 @@ page 50225 AutoAvailableReservations
             {
                 field("No."; Rec."No.")
                 {
-                   
                 
                 }
                 field("Auto No."; Rec."Auto No.")

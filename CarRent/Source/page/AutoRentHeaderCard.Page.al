@@ -18,14 +18,17 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Client No."; Rec."Client No.")
                 {
+                    ToolTip = 'Specfifies client';
                     Editable = Rec.Status <> Rec.Status::Issued;
                 }
                 field("Creation Date"; Rec."Creation Date")
                 {
-                    Editable = Rec.Status <> Rec.Status::Issued;
+                    ToolTip = 'Creation date of a contract';
                 }
                 field("Auto No."; Rec."Auto No.")
                 {
+                    ToolTip = 'Selection of car from auto list';
+                    InstructionalText = 'Select car';
                     Editable = (Rec."Client No." <> '') and (Rec.Status <> Rec.Status::Issued);
                     trigger OnValidate()
                     begin
@@ -35,6 +38,7 @@ page 50214 AutoRentHeaderCard
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
                     Editable = Rec.Status <> Rec.Status::Issued;
+                    ToolTip = 'Specifies when reservation starts';
                     trigger OnValidate()
                     begin
                         CheckReservationDate();
@@ -43,6 +47,7 @@ page 50214 AutoRentHeaderCard
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
                     Editable = Rec.Status <> Rec.Status::Issued;
+                    ToolTip = 'Specifies when reservation ends';
                     trigger OnValidate()
                     begin
                         CheckReservationDate();
@@ -50,17 +55,18 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Rent Price"; Rec."Rent Price")
                 {
-
+                    ToolTip = 'Initial rent price without services';
                 }
                 field(Status; Rec.Status)
                 {
-
+                    ToolTip = 'Specifies if rent contract is issued or still open';
                 }
             }
             group(Addition)
             {
                 part(Services; AutoRentLineListPart)
                 {
+                    Caption = 'Addition services, including default rent price';
                     SubPageLink = "Document No." = FIELD("No.");
                     ApplicationArea = All;
                     Visible = Rec."No." <> '';
@@ -77,7 +83,6 @@ page 50214 AutoRentHeaderCard
         }
     }
 
-
     actions
     {
         area(Processing)
@@ -88,12 +93,17 @@ page 50214 AutoRentHeaderCard
                 Image = ReleaseDoc;
                 ToolTip = 'Change status to issued, means rent is active.';
                 trigger OnAction()
+                var
+                    Msg: Label 'Already issued';
                 begin
-                    if Rec.Status = Rec.Status::Issued then
+                    if Rec.Status = Rec.Status::Issued then begin
+                        Message(Msg);
                         exit;
+                    end;
+
                     Rec.Status := Rec.Status::Issued;
                     Rec.Modify(false);
-                    //check if all fields are not empty
+                    CheckEmptyFields();
                     InsertReservation();
                 end;
             }
@@ -127,13 +137,20 @@ page 50214 AutoRentHeaderCard
             action(Report)
             {
                 Caption = 'Create Report';
+                ToolTip = 'Creates report for selected rent contract';
                 Image = Report;
                 trigger OnAction()
                 var
                     AutoRentHeaderRec: Record AutoRentHeader;
+                    Msg: Label 'Cannot create report until issued';
                 begin
+                    if Rec.Status = Rec.Status::Open then begin
+                        Message(Msg);
+                        exit;
+                    end;
                     AutoRentHeaderRec.SetRange("No.", Rec."No.");
                     Report.Run(Report::AutoRentHeaderList, true, false, AutoRentHeaderRec);
+
                 end;
             }
         }
@@ -149,6 +166,12 @@ page 50214 AutoRentHeaderCard
             actionref(Damage_Promoted; Damage)
             {
             }
+
+
+            actionref(Return_Promoted; Return)
+            {
+            }
+
         }
     }
 
@@ -158,6 +181,12 @@ page 50214 AutoRentHeaderCard
         AutoRentLine: Record AutoRentLine;
         Resource: Record Resource;
     begin
+        AutoRentLine.Reset();
+        AutoRentLine.SetRange("Document No.", xRec."No.");
+        if not AutoRentLine.IsEmpty() then
+            AutoRentLine.DeleteAll(false);
+
+        AutoRentLine.Reset();
         Auto.Get(Rec."Auto No.");
         Resource.Get(Auto.RentService);
         Rec."Rent Price" := Resource."Unit Price";
@@ -182,9 +211,10 @@ page 50214 AutoRentHeaderCard
     var
         AutoReservation: Record AutoReservation;
         RentError: Label 'Cannot rent this car, reservation for this car at selected time';
+        // DateError: Label 'Cannot rent in past';
         DateError2: Label 'Start date must be earlier than end date and end date not before start date';
     begin
-        // if (Rec."Reservation Start Time" < Today() ) or (Rec."Reservation End Time" < Today() ) then
+        // if (Rec."Reservation Start Time" < CreateDateTime(Today(),0T) ) or (Rec."Reservation End Time" < CreateDateTime(Today(),0T) ) then
         //     Error(DateError);
         if (Rec."Reservation Start Time" > Rec."Reservation End Time") or (Rec."Reservation End Time" < Rec."Reservation Start Time") then
             Error(DateError2);
@@ -278,6 +308,30 @@ page 50214 AutoRentHeaderCard
         AutoReservation.Get(Rec."No.", Rec."Auto No.");
         AutoReservation.Delete(true);
         Rec.Delete(true);
+    end;
+
+    local procedure CheckEmptyFields()
+    var
+        Error1: Label 'Reservation Start Time is required.';
+        Error2: Label 'Reservation End Time is required.';
+        Error3: Label 'Driving License is required.';
+        Error4: Label 'Auto No. is required.';
+        Error5: Label 'Client No. is required.';
+    begin
+        if Rec."Reservation Start Time" = 0DT then
+            Error(Error1);
+
+        if Rec."Reservation End Time" = 0DT then
+            Error(Error2);
+
+        if not Rec."Driving License".HasValue then
+            Error(Error3);
+
+        if Rec."Auto No." = '' then
+            Error(Error4);
+
+        if Rec."Client No." = '' then
+            Error(Error5);
     end;
 
     var
