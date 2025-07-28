@@ -4,7 +4,7 @@ page 50213 AutoRentHeaderList
     UsageCategory = Lists;
     SourceTable = AutoRentHeader;
     Caption = 'Auto Rent List';
-    Editable = true;
+    Editable = false;
     CardPageId = AutoRentHeaderCard;
 
     layout
@@ -56,7 +56,7 @@ page 50213 AutoRentHeaderList
             {
                 Caption = 'Issue';
                 Image = ReleaseDoc;
-                ToolTip = 'Change status to issued, rent will be activated';
+                ToolTip = 'Change status to issued, rent contract will be activated';
                 trigger OnAction()
                 begin
                     Rec.Status := Rec.Status::Issued;

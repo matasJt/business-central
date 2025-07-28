@@ -5,6 +5,7 @@ page 50227 FinishedAutoRentHeaderList
     UsageCategory = Lists;
     SourceTable = FinishedAutoRentHeader;
     Editable = false;
+    DeleteAllowed=false;
     Caption = 'Finished rent contracts list';
     CardPageId = FinishedAutoRentHeaderCard;
 

@@ -5,6 +5,7 @@ page 50228 FinishedAutoRentHeaderCard
     UsageCategory = None;
     SourceTable = FinishedAutoRentHeader;
     Editable = false;
+    DeleteAllowed=false;
     Caption = 'Finished rent contract';
 
 

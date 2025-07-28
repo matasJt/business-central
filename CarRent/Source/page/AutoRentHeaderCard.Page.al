@@ -18,6 +18,7 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Client No."; Rec."Client No.")
                 {
+                    InstructionalText = 'Select client';
                     ToolTip = 'Specfifies client';
                     Editable = Rec.Status <> Rec.Status::Issued;
                 }
@@ -95,6 +96,7 @@ page 50214 AutoRentHeaderCard
                 trigger OnAction()
                 var
                     Msg: Label 'Already issued';
+                    MsgSuccess: Label 'Successfully issued the rent contract, reservation completed.';
                 begin
                     if Rec.Status = Rec.Status::Issued then begin
                         Message(Msg);
@@ -105,6 +107,7 @@ page 50214 AutoRentHeaderCard
                     Rec.Modify(false);
                     CheckEmptyFields();
                     InsertReservation();
+                    Message(MsgSuccess);
                 end;
             }
             action(Return)
@@ -113,24 +116,33 @@ page 50214 AutoRentHeaderCard
                 Image = Return;
                 ToolTip = 'Return car to rent place';
                 trigger OnAction()
+                var
+                    MsgSuccess: Label 'Car was returned, check history in finished auto rent list';
                 begin
-                    if Rec.Status = Rec.Status::Issued then
+                    if Rec.Status = Rec.Status::Issued then begin
                         ReturnCar();
+                        Message(MsgSuccess);
+                    end;
+
                 end;
             }
             action(Damage)
             {
                 Caption = 'Add Damage';
                 Image = Add;
-                ToolTip = 'Registere damage to this car in this reservation context';
+                ToolTip = 'Register damage to this car in this reservation context';
                 trigger OnAction()
                 var
                     AutoRentDamageList: Page AutoRentDamageList;
+                    MsgError: Label 'Cannot add damage until issued';
                 begin
-                    if Rec.Status = Rec.Status::Issued then begin
-                        AutoRentDamageList.SetDocumentNo(Rec."No.");
-                        AutoRentDamageList.RunModal();
+                    if Rec.Status = Rec.Status::Open then begin
+                        Message(MsgError);
+                        exit;
                     end;
+
+                    AutoRentDamageList.SetDocumentNo(Rec."No.");
+                    AutoRentDamageList.RunModal();
 
                 end;
             }
@@ -150,7 +162,6 @@ page 50214 AutoRentHeaderCard
                     end;
                     AutoRentHeaderRec.SetRange("No.", Rec."No.");
                     Report.Run(Report::AutoRentHeaderList, true, false, AutoRentHeaderRec);
-
                 end;
             }
         }
