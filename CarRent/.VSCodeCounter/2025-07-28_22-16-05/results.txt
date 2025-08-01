@@ -1,0 +1,76 @@
+Date : 2025-07-28 22:16:05
+Directory : c:\Users\em\Documents\Project\CarRent
+Total : 41 files,  365478 codes, 16 comments, 2300 blanks, all 367794 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| alapp    |          6 |    362,093 |          0 |      2,103 |    364,196 |
+| AL       |         33 |      2,033 |         16 |        197 |      2,246 |
+| XML      |          1 |      1,319 |          0 |          0 |      1,319 |
+| JSON     |          1 |         33 |          0 |          0 |         33 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                 | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                    |         41 |    365,478 |         16 |      2,300 |    367,794 |
+| . (Files)                                                                                            |          2 |        643 |          0 |          2 |        645 |
+| .alpackages                                                                                          |          5 |    361,483 |          0 |      2,101 |    363,584 |
+| Source                                                                                               |         33 |      2,033 |         16 |        197 |      2,246 |
+| Source\enum                                                                                          |          3 |         30 |          0 |          4 |         34 |
+| Source\page                                                                                          |         17 |      1,182 |         10 |        101 |      1,293 |
+| Source\report                                                                                        |          2 |        174 |          0 |         26 |        200 |
+| Source\table                                                                                         |         11 |        647 |          6 |         66 |        719 |
+| Translations                                                                                         |          1 |      1,319 |          0 |          0 |      1,319 |
++------------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                                             | language | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Application_26.2.34746.34832.app         | alapp    |        230 |          0 |          2 |        232 |
+| c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Base Application_26.2.34746.34832.app    | alapp    |    267,847 |          0 |      1,545 |    269,392 |
+| c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Business Foundation_26.2.34746.34832.app | alapp    |      4,447 |          0 |         43 |      4,490 |
+| c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_System Application_26.2.34746.34832.app  | alapp    |     64,725 |          0 |        374 |     65,099 |
+| c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_System_26.0.34736.0.app                  | alapp    |     24,234 |          0 |        137 |     24,371 |
+| c:\Users\em\Documents\Project\CarRent\MATA_CarRent_1.0.0.0.app                                       | alapp    |        610 |          0 |          2 |        612 |
+| c:\Users\em\Documents\Project\CarRent\Source\enum\AutoDamageStatus.Enum.al                           | AL       |         10 |          0 |          1 |         11 |
+| c:\Users\em\Documents\Project\CarRent\Source\enum\RentLineType.Enum.al                               | AL       |         10 |          0 |          1 |         11 |
+| c:\Users\em\Documents\Project\CarRent\Source\enum\RentStatusType.Enum.al                             | AL       |         10 |          0 |          2 |         12 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoAvailableReservations.Page.al                  | AL       |         32 |          0 |         12 |         44 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoBrandist.Page.al                               | AL       |         25 |          0 |          1 |         26 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoCard.Page.al                                   | AL       |        114 |          0 |          8 |        122 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoDamageList.Page.al                             | AL       |         58 |          0 |          5 |         63 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoList.Page.al                                   | AL       |         95 |          0 |          3 |         98 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoModelList.Page.al                              | AL       |         30 |          0 |          1 |         31 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentDamageList.Page.al                         | AL       |         35 |          4 |          1 |         40 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentHeaderCard.Page.al                         | AL       |        318 |          6 |         27 |        351 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentHeaderList.Page.al                         | AL       |         72 |          0 |          5 |         77 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentLineListPart.Page.al                       | AL       |         60 |          0 |          8 |         68 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoReservationList.Page.al                        | AL       |         38 |          0 |          4 |         42 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\AutoSetupCard.Page.al                              | AL       |         29 |          0 |          2 |         31 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\DrivingLicense.Page.al                             | AL       |         74 |          0 |          9 |         83 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\DrivingLicenseCopy.Page.al                         | AL       |         20 |          0 |          2 |         22 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentHeaderCard.Page.al                 | AL       |         62 |          0 |          6 |         68 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentHeaderList.Page.al                 | AL       |         70 |          0 |          5 |         75 |
+| c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentLineListPart.Page.al               | AL       |         50 |          0 |          2 |         52 |
+| c:\Users\em\Documents\Project\CarRent\Source\report\AutoRentHeaderList.Report.al                     | AL       |         75 |          0 |         13 |         88 |
+| c:\Users\em\Documents\Project\CarRent\Source\report\FinishedAutoRent.Report.al                       | AL       |         99 |          0 |         13 |        112 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\Auto.Table.al                                     | AL       |         78 |          0 |          4 |         82 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoBrand.Table.al                                | AL       |         24 |          0 |          3 |         27 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoDamage.Table.al                               | AL       |         37 |          0 |          4 |         41 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoModel.Table.al                                | AL       |         30 |          0 |          4 |         34 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentDamage.Table.al                           | AL       |         33 |          0 |          2 |         35 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentHeader.Table.al                           | AL       |        117 |          3 |         12 |        132 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentLine.Table.al                             | AL       |        128 |          3 |         10 |        141 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoReservation.Table.al                          | AL       |         39 |          0 |          5 |         44 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\AutoSetup.Table.al                                | AL       |         50 |          0 |         14 |         64 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\FInishedAutoRentLine.Table.al                     | AL       |         52 |          0 |          2 |         54 |
+| c:\Users\em\Documents\Project\CarRent\Source\table\FinishedAutoRentHeader.Table.al                   | AL       |         59 |          0 |          6 |         65 |
+| c:\Users\em\Documents\Project\CarRent\Translations\CarRent.g.xlf                                     | XML      |      1,319 |          0 |          0 |      1,319 |
+| c:\Users\em\Documents\Project\CarRent\app.json                                                       | JSON     |         33 |          0 |          0 |         33 |
+| Total                                                                                                |          |    365,478 |         16 |      2,300 |    367,794 |
++------------------------------------------------------------------------------------------------------+----------+------------+------------+------------+------------+

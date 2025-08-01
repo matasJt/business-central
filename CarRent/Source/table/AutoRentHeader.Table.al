@@ -80,6 +80,14 @@ table 50211 AutoRentHeader
         GenerateNewNo();
     end;
 
+    trigger OnDelete()
+    var
+        Msg: Label 'Cannot be deleted cause it issued';
+    begin
+        if Status = Status::Issued then
+            Error(Msg);
+    end;
+
 
 
     /// <summary>

@@ -173,6 +173,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method CheckClient - NamedType DebtMsg</note>
         </trans-unit>
+        <trans-unit id="Table 2008378583 - Method 3152277940 - NamedType 3004040435" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot be deleted cause it issued</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table AutoRentHeader - Method OnDelete - NamedType Msg</note>
+        </trans-unit>
         <trans-unit id="Table 2008378583 - Method 4152941904 - NamedType 2891562574" size-unit="char" translate="yes" xml:space="preserve">
           <source>Must upload driving license</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -664,12 +669,12 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoList - Control No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4028577999 - Control 3635338911 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Rent service type for the automobile.</source>
+          <source>Rent price for the automobile.</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoList - Control Price - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4028577999 - Control 3635338911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Rent Service Type</source>
+          <source>Rent Price</source>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoList - Control Price - Property Caption</note>
         </trans-unit>
@@ -773,6 +778,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 2425311731 - Method 821303056 - NamedType 331638123" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Cannot pick reservation date in past</source>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method CheckCorrectDate - NamedType ErrorMsg</note>
+        </trans-unit>
         <trans-unit id="Page 2425311731 - Method 2905283246 - NamedType 3548723355" size-unit="char" translate="yes" xml:space="preserve">
           <source>Reservation Start Time is required.</source>
           <note from="Developer" annotates="general" priority="2"></note>
@@ -803,10 +813,10 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method CheckReservationDate - NamedType RentError</note>
         </trans-unit>
-        <trans-unit id="Page 2425311731 - Method 4027066958 - NamedType 1439581234" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Start date must be earlier than end date and end date not before start date</source>
+        <trans-unit id="Page 2425311731 - Method 4271930342 - NamedType 1439581234" size-unit="char" translate="yes" xml:space="preserve">
+          <source>End date not before start date</source>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method CheckReservationDate - NamedType DateError2</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page AutoRentHeaderCard - Method DateValidate - NamedType DateError2</note>
         </trans-unit>
         <trans-unit id="Page 2425311731 - Method 4062881225 - NamedType 2771784383" size-unit="char" translate="yes" xml:space="preserve">
           <source>This car is already reserved for this time during filling.</source>

@@ -61,8 +61,8 @@ page 50207 AutoList
                 }
                 field(Price; Rec.Price)
                 {
-                    Caption = 'Rent Service Type';
-                    ToolTip = 'Rent service type for the automobile.';
+                    Caption = 'Rent Price';
+                    ToolTip = 'Rent price for the automobile.';
                 }
             }
         }

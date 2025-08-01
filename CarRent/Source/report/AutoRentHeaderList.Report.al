@@ -58,7 +58,6 @@ report 50235 AutoRentHeaderList
         }
          dataitem(TotalPrice; Integer)
             {
-
                 column(ServiceAmount;ServiceAmount) { }
                 column(RentalAmount;RentalAmount){}
 

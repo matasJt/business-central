@@ -38,6 +38,7 @@ table 50216 AutoRentLine
         field(6; Quantity; Integer)
         {
             DataClassification = CustomerContent;
+            InitValue = 1;
             trigger OnValidate()
             begin
                 FillFields();

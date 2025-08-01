@@ -20,7 +20,7 @@ page 50208 AutoCard
                     Caption = 'Name';
                     ToolTip = 'Custom name of a car';
                     NotBlank = true;
-                    InstructionalText='Custom car name';
+                    InstructionalText = 'Custom car name';
                 }
                 field(Brand; Rec.Brand)
                 {
@@ -56,11 +56,13 @@ page 50208 AutoCard
                 }
                 field(RentService; Rec.RentService)
                 {
+                    ShowMandatory = true;
+                    NotBlank = true;
                     ToolTip = 'Rent service type';
                 }
                 field(Price; Rec.Price)
                 {
-                    ToolTip='Price for renting a car not including additional services';
+                    ToolTip = 'Price for renting a car not including additional services';
                 }
 
             }

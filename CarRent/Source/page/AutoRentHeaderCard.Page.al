@@ -38,20 +38,27 @@ page 50214 AutoRentHeaderCard
                 }
                 field("Reservation Start Time"; Rec."Reservation Start Time")
                 {
-                    Editable = Rec.Status <> Rec.Status::Issued;
+                    Editable = (Rec.Status <> Rec.Status::Issued) and (Rec."Auto No." <> '');
                     ToolTip = 'Specifies when reservation starts';
                     trigger OnValidate()
                     begin
+                        CheckCorrectDate();
                         CheckReservationDate();
+                        if Rec."Reservation End Time" <> 0DT then
+                            DateValidate();
                     end;
                 }
                 field("Reservation End Time"; Rec."Reservation End Time")
                 {
-                    Editable = Rec.Status <> Rec.Status::Issued;
+                    Editable = (Rec.Status <> Rec.Status::Issued) and (Rec."Auto No." <> '');
                     ToolTip = 'Specifies when reservation ends';
                     trigger OnValidate()
                     begin
-                        CheckReservationDate();
+                        if Rec."Reservation Start Time" <> 0DT then begin
+                            DateValidate();
+                            CheckReservationDate();
+                        end;
+
                     end;
                 }
                 field("Rent Price"; Rec."Rent Price")
@@ -215,6 +222,28 @@ page 50214 AutoRentHeaderCard
         AutoRentLine.Insert(false);
     end;
 
+    local procedure DateValidate()
+    var
+        DateError2: Label 'End date not before start date';
+    begin
+        if (Rec."Reservation End Time" < Rec."Reservation Start Time") or (Rec."Reservation Start Time" > Rec."Reservation End Time") then
+            Error(DateError2);
+    end;
+
+    /// <summary>
+    /// Checks if reservation do not starts in past
+    /// </summary>
+    local procedure CheckCorrectDate()
+    var
+        TodayDate: Date;
+        ErrorMsg: Label 'Cannot pick reservation date in past';
+    begin
+        TodayDate := Today;
+        if Rec."Reservation Start Time".Date < TodayDate then
+            Error(ErrorMsg);
+    end;
+
+
     /// <summary>
     /// Checks if reservation could be done on selected date if it's free
     /// </summary>
@@ -222,21 +251,21 @@ page 50214 AutoRentHeaderCard
     var
         AutoReservation: Record AutoReservation;
         RentError: Label 'Cannot rent this car, reservation for this car at selected time';
-        // DateError: Label 'Cannot rent in past';
-        DateError2: Label 'Start date must be earlier than end date and end date not before start date';
     begin
-        // if (Rec."Reservation Start Time" < CreateDateTime(Today(),0T) ) or (Rec."Reservation End Time" < CreateDateTime(Today(),0T) ) then
-        //     Error(DateError);
-        if (Rec."Reservation Start Time" > Rec."Reservation End Time") or (Rec."Reservation End Time" < Rec."Reservation Start Time") then
-            Error(DateError2);
-
         AutoReservation.Reset();
         AutoReservation.SetRange("Auto No.", Rec."Auto No.");
-        AutoReservation.SetFilter("Reservation Start Time", '<=%1', Rec."Reservation End Time");
-        AutoReservation.SetFilter("Reservation End Time", '>=%1', Rec."Reservation Start Time");
-        if AutoReservation.IsEmpty() then
-            exit;
-        Error(RentError);
+        if AutoReservation.FindSet() then
+            repeat
+                if (AutoReservation."Reservation Start Time" <= Rec."Reservation End Time") and
+                   (AutoReservation."Reservation End Time" >= Rec."Reservation Start Time") then begin
+                    Message('Existing reservation: %1 - %2 already taken. Selected reservation: %3 - %4',
+                            AutoReservation."Reservation Start Time",
+                            AutoReservation."Reservation End Time",
+                            Rec."Reservation Start Time",
+                            Rec."Reservation End Time");
+                    Error(RentError);
+                end;
+            until AutoReservation.Next() = 0;
     end;
 
     local procedure InsertReservation()
@@ -244,13 +273,13 @@ page 50214 AutoRentHeaderCard
         AutoReservation: Record AutoReservation;
         RentError: Label 'This car is already reserved for this time during filling.';
     begin
-        if AutoReservation.FindSet() THEN
-            REPEAT
-                IF (AutoReservation."Auto No." = Rec."Auto No.") and
+        if AutoReservation.FindSet() then
+            repeat
+                if (AutoReservation."Auto No." = Rec."Auto No.") and
                    (Rec."Reservation Start Time" <= AutoReservation."Reservation End Time") and
                    (Rec."Reservation End Time" >= AutoReservation."Reservation Start Time") then
                     Error(RentError);
-            UNTIL AutoReservation.NEXT = 0;
+            until AutoReservation.Next() = 0;
 
         AutoReservation.Init();
         AutoReservation."Auto No." := Rec."Auto No.";
@@ -318,7 +347,7 @@ page 50214 AutoRentHeaderCard
         FinishedAutoRentHeader.Insert(true);
         AutoReservation.Get(Rec."No.", Rec."Auto No.");
         AutoReservation.Delete(true);
-        Rec.Delete(true);
+        Rec.Delete(false);
     end;
 
     local procedure CheckEmptyFields()

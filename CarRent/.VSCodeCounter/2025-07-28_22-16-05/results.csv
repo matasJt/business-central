@@ -1,0 +1,43 @@
+"filename", "language", "XML", "AL", "alapp", "JSON", "comment", "blank", "total"
+"c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Application_26.2.34746.34832.app", "alapp", 0, 0, 230, 0, 0, 2, 232
+"c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Base Application_26.2.34746.34832.app", "alapp", 0, 0, 267847, 0, 0, 1545, 269392
+"c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_Business Foundation_26.2.34746.34832.app", "alapp", 0, 0, 4447, 0, 0, 43, 4490
+"c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_System Application_26.2.34746.34832.app", "alapp", 0, 0, 64725, 0, 0, 374, 65099
+"c:\Users\em\Documents\Project\CarRent\.alpackages\Microsoft_System_26.0.34736.0.app", "alapp", 0, 0, 24234, 0, 0, 137, 24371
+"c:\Users\em\Documents\Project\CarRent\MATA_CarRent_1.0.0.0.app", "alapp", 0, 0, 610, 0, 0, 2, 612
+"c:\Users\em\Documents\Project\CarRent\Source\enum\AutoDamageStatus.Enum.al", "AL", 0, 10, 0, 0, 0, 1, 11
+"c:\Users\em\Documents\Project\CarRent\Source\enum\RentLineType.Enum.al", "AL", 0, 10, 0, 0, 0, 1, 11
+"c:\Users\em\Documents\Project\CarRent\Source\enum\RentStatusType.Enum.al", "AL", 0, 10, 0, 0, 0, 2, 12
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoAvailableReservations.Page.al", "AL", 0, 32, 0, 0, 0, 12, 44
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoBrandist.Page.al", "AL", 0, 25, 0, 0, 0, 1, 26
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoCard.Page.al", "AL", 0, 114, 0, 0, 0, 8, 122
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoDamageList.Page.al", "AL", 0, 58, 0, 0, 0, 5, 63
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoList.Page.al", "AL", 0, 95, 0, 0, 0, 3, 98
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoModelList.Page.al", "AL", 0, 30, 0, 0, 0, 1, 31
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentDamageList.Page.al", "AL", 0, 35, 0, 0, 4, 1, 40
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentHeaderCard.Page.al", "AL", 0, 318, 0, 0, 6, 27, 351
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentHeaderList.Page.al", "AL", 0, 72, 0, 0, 0, 5, 77
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoRentLineListPart.Page.al", "AL", 0, 60, 0, 0, 0, 8, 68
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoReservationList.Page.al", "AL", 0, 38, 0, 0, 0, 4, 42
+"c:\Users\em\Documents\Project\CarRent\Source\page\AutoSetupCard.Page.al", "AL", 0, 29, 0, 0, 0, 2, 31
+"c:\Users\em\Documents\Project\CarRent\Source\page\DrivingLicense.Page.al", "AL", 0, 74, 0, 0, 0, 9, 83
+"c:\Users\em\Documents\Project\CarRent\Source\page\DrivingLicenseCopy.Page.al", "AL", 0, 20, 0, 0, 0, 2, 22
+"c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentHeaderCard.Page.al", "AL", 0, 62, 0, 0, 0, 6, 68
+"c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentHeaderList.Page.al", "AL", 0, 70, 0, 0, 0, 5, 75
+"c:\Users\em\Documents\Project\CarRent\Source\page\FinishedAutoRentLineListPart.Page.al", "AL", 0, 50, 0, 0, 0, 2, 52
+"c:\Users\em\Documents\Project\CarRent\Source\report\AutoRentHeaderList.Report.al", "AL", 0, 75, 0, 0, 0, 13, 88
+"c:\Users\em\Documents\Project\CarRent\Source\report\FinishedAutoRent.Report.al", "AL", 0, 99, 0, 0, 0, 13, 112
+"c:\Users\em\Documents\Project\CarRent\Source\table\Auto.Table.al", "AL", 0, 78, 0, 0, 0, 4, 82
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoBrand.Table.al", "AL", 0, 24, 0, 0, 0, 3, 27
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoDamage.Table.al", "AL", 0, 37, 0, 0, 0, 4, 41
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoModel.Table.al", "AL", 0, 30, 0, 0, 0, 4, 34
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentDamage.Table.al", "AL", 0, 33, 0, 0, 0, 2, 35
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentHeader.Table.al", "AL", 0, 117, 0, 0, 3, 12, 132
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoRentLine.Table.al", "AL", 0, 128, 0, 0, 3, 10, 141
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoReservation.Table.al", "AL", 0, 39, 0, 0, 0, 5, 44
+"c:\Users\em\Documents\Project\CarRent\Source\table\AutoSetup.Table.al", "AL", 0, 50, 0, 0, 0, 14, 64
+"c:\Users\em\Documents\Project\CarRent\Source\table\FInishedAutoRentLine.Table.al", "AL", 0, 52, 0, 0, 0, 2, 54
+"c:\Users\em\Documents\Project\CarRent\Source\table\FinishedAutoRentHeader.Table.al", "AL", 0, 59, 0, 0, 0, 6, 65
+"c:\Users\em\Documents\Project\CarRent\Translations\CarRent.g.xlf", "XML", 1319, 0, 0, 0, 0, 0, 1319
+"c:\Users\em\Documents\Project\CarRent\app.json", "JSON", 0, 0, 0, 33, 0, 0, 33
+"Total", "-", 1319, 2033, 362093, 33, 16, 2300, 367794

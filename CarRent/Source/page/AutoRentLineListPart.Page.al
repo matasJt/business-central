@@ -63,6 +63,11 @@ page 50218 AutoRentLineListPart
     begin
         Rec.UpdateTotalRentPrice();
     end;
+    trigger OnDeleteRecord(): Boolean
+    begin
+        Rec.Delete(false);
+        Rec.UpdateTotalRentPrice();
+    end;
 
     
 }
